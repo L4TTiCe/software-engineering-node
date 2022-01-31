@@ -9,3 +9,6 @@ docker-compose.yml
 
 # NPM dependencies
 node_modules
+
+# Build files
+build
