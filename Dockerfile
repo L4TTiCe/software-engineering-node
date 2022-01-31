@@ -10,10 +10,10 @@ RUN npm install
 COPY . .
 
 # Build the Project
-RUN npm run build
+# RUN npm run build
 
 # Define and expose PORT
 ENV PORT=4000
 EXPOSE 4000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

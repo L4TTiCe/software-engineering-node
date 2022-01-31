@@ -14,11 +14,11 @@ export default class TuitDao implements TuitDaoI {
     }
 
     async findAllTuits(): Promise<Tuit[]> {
-        return TuitModel.find();
+        return TuitModel.find().populate('postedBy');
     }
 
     async findTuitById(tid: string): Promise<Tuit> {
-        return TuitModel.findById(tid);
+        return TuitModel.findById(tid).populate('postedBy');
     }
 
     async findTuitsByUser(uid: string): Promise<Tuit[]> {
