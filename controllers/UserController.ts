@@ -5,41 +5,50 @@ import bodyParser from 'body-parser';
 
 
 export default class UserController implements UserControllerI {
-    private userDao: UserDao;
-    constructor(app: Express) {
-        this.userDao = UserDao.getInstance();
+    private static userDao: UserDao;
+    private static userController: UserController | null = null
 
-        // Use body-parser middleware to read req.body
-        // Reference:
-        // https://stackoverflow.com/questions/9177049/express-js-req-body-undefined
-        app.use(bodyParser.urlencoded({ extended: false }))
-        app.use(bodyParser.json())
+    public static getInstance(app: Express): UserController {
+        if(UserController.userController === null) {
+            UserController.userController = new UserController()
+            UserController.userDao = UserDao.getInstance();
 
-        app.get('/users', this.findAllUsers);
-        app.get('/users/:uid', this.findUserById);
-        app.post('/users', this.createUser);
-        app.delete('/users/:uid', this.deleteUser);
-        app.put('/users/:uid', this.updateUser);
+            // Use body-parser middleware to read req.body
+            // Reference:
+            // https://stackoverflow.com/questions/9177049/express-js-req-body-undefined
+            app.use(bodyParser.urlencoded({ extended: false }))
+            app.use(bodyParser.json())
+
+            app.get('/users', UserController.userController.findAllUsers);
+            app.get('/users/:uid', UserController.userController.findUserById);
+            app.post('/users', UserController.userController.createUser);
+            app.delete('/users/:uid', UserController.userController.deleteUser);
+            app.put('/users/:uid', UserController.userController.updateUser);
+        }
+        return UserController.userController
     }
 
+    // Prevent Initiation of Object
+    private constructor() {}
+
     findAllUsers = (req: Request, res: Response) =>
-        this.userDao.findAllUsers()
+        UserController.userDao.findAllUsers()
             .then(users => res.json(users));
 
     findUserById = (req: Request, res: Response) =>
-        this.userDao.findUserById(req.params.uid)
+        UserController.userDao.findUserById(req.params.uid)
             .then(user => res.json(user));
 
     createUser = (req: Request, res: Response) => {
-        this.userDao.createUser(req.body)
+        UserController.userDao.createUser(req.body)
             .then(user => res.json(user));
     }
 
     deleteUser = (req: Request, res: Response) =>
-        this.userDao.deleteUser(req.params.uid)
+        UserController.userDao.deleteUser(req.params.uid)
             .then(status => res.json(status));
 
     updateUser = (req: Request, res: Response) =>
-        this.userDao.updateUser(req.params.uid, req.body)
+        UserController.userDao.updateUser(req.params.uid, req.body)
             .then(status => res.json(status));
 }

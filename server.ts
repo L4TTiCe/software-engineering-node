@@ -14,8 +14,8 @@ mongoose.connection.once('open', () => {
 
 
 const app = express();
-new UserController(app);
-new TuitController(app)
+UserController.getInstance(app)
+TuitController.getInstance(app)
 
 app.get('/hello', (req, res) =>
     res.send('Hello World!'));

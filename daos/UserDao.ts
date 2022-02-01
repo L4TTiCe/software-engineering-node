@@ -3,7 +3,10 @@ import UserModel from "../mongoose/UserModel";
 import UserDaoI from "../interfaces/UserDaoI";
 
 export default class UserDao implements UserDaoI {
-    static userDao: UserDao = new UserDao()
+    private static userDao: UserDao = new UserDao()
+
+    // Prevent Initiation of Object
+    private constructor() {}
 
     static getInstance(): UserDao {
         return this.userDao;

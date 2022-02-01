@@ -5,7 +5,10 @@ import UserDao from "../daos/UserDao";
 import User from "../models/User";
 
 export default class TuitDao implements TuitDaoI {
-    static tuitDao: TuitDao = new TuitDao()
+    private static tuitDao: TuitDao = new TuitDao()
+
+    // Prevent Initiation of Object
+    private constructor() {}
 
     static getInstance(): TuitDao {
         return this.tuitDao
@@ -28,7 +31,7 @@ export default class TuitDao implements TuitDaoI {
     }
 
     async findTuitsByUser(uid: string): Promise<Tuit[]> {
-        let userDao = new UserDao();
+        let userDao = UserDao.getInstance();
         const user: User = await userDao.findUserById(uid)
 
         return TuitModel.find({postedBy: user});
