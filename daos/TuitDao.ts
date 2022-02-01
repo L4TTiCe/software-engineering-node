@@ -1,43 +1,43 @@
-import Tuit from "../models/Tuit"
-import TuitModel from "../mongoose/TuitModel"
-import TuitDaoI from "../interfaces/TuitDaoI"
-import UserDao from "../daos/UserDao"
-import User from "../models/User"
+import {Tuit} from "../models/Tuit"
+import {TuitModel} from "../mongoose/TuitModel"
+import {TuitDaoI} from "../interfaces/TuitDaoI"
+import {UserDao} from "./UserDao"
+import {User} from "../models/User"
 
-export default class TuitDao implements TuitDaoI {
+export class TuitDao implements TuitDaoI {
     private static tuitDao: TuitDao = new TuitDao()
 
     // Prevent Initiation of Object
     private constructor() {
     }
 
-    static getInstance(): TuitDao {
+    public static getInstance(): TuitDao {
         return this.tuitDao
     }
 
-    async createTuit(tuit: Tuit): Promise<Tuit> {
+    public async createTuit(tuit: Tuit): Promise<Tuit> {
         return TuitModel
             .create(tuit)
     }
 
-    async deleteTuit(tid: string): Promise<any> {
+    public async deleteTuit(tid: string): Promise<any> {
         return TuitModel
             .deleteOne({_id: tid})
     }
 
-    async findAllTuits(): Promise<Tuit[]> {
+    public async findAllTuits(): Promise<Tuit[]> {
         return TuitModel
             .find()
-            .populate('postedBy')
+            .populate("postedBy")
     }
 
-    async findTuitById(tid: string): Promise<Tuit> {
+    public async findTuitById(tid: string): Promise<Tuit> {
         return TuitModel
             .findById(tid)
-            .populate('postedBy')
+            .populate("postedBy")
     }
 
-    async findTuitsByUser(uid: string): Promise<Tuit[]> {
+    public async findTuitsByUser(uid: string): Promise<Tuit[]> {
         const user: User = await UserDao.getInstance()
             .findUserById(uid)
 
@@ -45,7 +45,7 @@ export default class TuitDao implements TuitDaoI {
             .find({postedBy: user})
     }
 
-    async updateTuit(tid: string, tuit: Tuit): Promise<any> {
+    public async updateTuit(tid: string, tuit: Tuit): Promise<any> {
         return TuitModel.updateOne({_id: tid}, {$set: tuit})
     }
 

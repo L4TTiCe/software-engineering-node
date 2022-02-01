@@ -1,9 +1,10 @@
 import {Express, Request, Response} from "express"
-import bodyParser from 'body-parser'
-import TuitDao from "../daos/TuitDao"
-import TuitControllerI from "../interfaces/TuitControllerI"
+import bodyParser from "body-parser"
+import {TuitDao} from "../daos/TuitDao"
+import {TuitControllerI} from "../interfaces/TuitControllerI"
+import {Tuit} from "../models/Tuit";
 
-export default class TuitController implements TuitControllerI {
+export class TuitController implements TuitControllerI {
     private static tuitDao: TuitDao
     private static tuitController: TuitController | null = null;
 
@@ -22,49 +23,49 @@ export default class TuitController implements TuitControllerI {
             app.use(bodyParser.urlencoded({extended: false}))
             app.use(bodyParser.json())
 
-            app.get('/tuits', TuitController.tuitController.findAllTuits)
-            app.get('/tuits/:tid', TuitController.tuitController.findTuitById)
-            app.post('/tuits', TuitController.tuitController.createTuit)
-            app.delete('/tuits/:tid', TuitController.tuitController.deleteTuit)
-            app.put('/tuits/:tid', TuitController.tuitController.updateTuit)
-            app.get('/users/:uid/tuits', TuitController.tuitController.findTuitsByUser)
+            app.get("/tuits", TuitController.tuitController.findAllTuits)
+            app.get("/tuits/:tid", TuitController.tuitController.findTuitById)
+            app.post("/tuits", TuitController.tuitController.createTuit)
+            app.delete("/tuits/:tid", TuitController.tuitController.deleteTuit)
+            app.put("/tuits/:tid", TuitController.tuitController.updateTuit)
+            app.get("/users/:uid/tuits", TuitController.tuitController.findTuitsByUser)
         }
         return TuitController.tuitController
     }
 
-    createTuit(req: Request, res: Response): void {
+    public createTuit(req: Request, res: Response): void {
         TuitController.tuitDao.createTuit(req.body)
-            .then(tuit => res.json(tuit))
+            .then((tuit: Tuit) => res.json(tuit))
             .catch((status) => res.json(status))
     }
 
-    deleteTuit(req: Request, res: Response): void {
+    public deleteTuit(req: Request, res: Response): void {
         TuitController.tuitDao.deleteTuit(req.params.tid)
-            .then(status => res.json(status))
+            .then((status) => res.json(status))
             .catch((status) => res.json(status))
     }
 
-    findAllTuits(req: Request, res: Response): void {
+    public findAllTuits(req: Request, res: Response): void {
         TuitController.tuitDao.findAllTuits()
-            .then(tuits => res.json(tuits))
+            .then((tuits: Tuit[]) => res.json(tuits))
             .catch((status) => res.json(status))
     }
 
-    findTuitById(req: Request, res: Response): void {
+    public findTuitById(req: Request, res: Response): void {
         TuitController.tuitDao.findTuitById(req.params.tid)
-            .then(tuit => res.json(tuit))
+            .then((tuit: Tuit) => res.json(tuit))
             .catch((status) => res.json(status))
     }
 
-    findTuitsByUser(req: Request, res: Response): void {
+    public findTuitsByUser(req: Request, res: Response): void {
         TuitController.tuitDao.findTuitsByUser(req.params.uid)
-            .then(tuits => res.json(tuits))
+            .then((tuits: Tuit[]) => res.json(tuits))
             .catch((status) => res.json(status))
     }
 
-    updateTuit(req: Request, res: Response): void {
+    public updateTuit(req: Request, res: Response): void {
         TuitController.tuitDao.updateTuit(req.params.tid, req.body)
-            .then(status => res.json(status))
+            .then((status) => res.json(status))
             .catch((status) => res.json(status))
     }
 

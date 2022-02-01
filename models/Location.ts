@@ -1,4 +1,4 @@
-export default class Location {
-    public latitude: number = 0.0;
-    public longitude: number = 0.0;
+export class Location {
+    public latitude = 0.0;
+    public longitude = 0.0;
 }

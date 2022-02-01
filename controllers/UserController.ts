@@ -1,10 +1,11 @@
 import {Express, Request, Response} from "express"
-import UserDao from "../daos/UserDao"
-import UserControllerI from "../interfaces/UserControllerI"
-import bodyParser from 'body-parser'
+import bodyParser from "body-parser"
+import {UserDao} from "../daos/UserDao"
+import { UserControllerI } from "../interfaces/UserControllerI"
+import {User} from "../models/User";
 
 
-export default class UserController implements UserControllerI {
+export class UserController implements UserControllerI {
     private static userDao: UserDao
     private static userController: UserController | null = null
 
@@ -23,42 +24,42 @@ export default class UserController implements UserControllerI {
             app.use(bodyParser.urlencoded({extended: false}))
             app.use(bodyParser.json())
 
-            app.get('/users', UserController.userController.findAllUsers)
-            app.get('/users/:uid', UserController.userController.findUserById)
-            app.post('/users', UserController.userController.createUser)
-            app.delete('/users/:uid', UserController.userController.deleteUser)
-            app.put('/users/:uid', UserController.userController.updateUser)
+            app.get("/users", UserController.userController.findAllUsers)
+            app.get("/users/:uid", UserController.userController.findUserById)
+            app.post("/users", UserController.userController.createUser)
+            app.delete("/users/:uid", UserController.userController.deleteUser)
+            app.put("/users/:uid", UserController.userController.updateUser)
         }
         return UserController.userController
     }
 
-    findAllUsers(req: Request, res: Response): void {
+    public findAllUsers(req: Request, res: Response): void {
         UserController.userDao.findAllUsers()
-            .then(users => res.json(users))
+            .then((users: User[]) => res.json(users))
             .catch((status) => res.json(status))
     }
 
-    findUserById(req: Request, res: Response): void {
+    public findUserById(req: Request, res: Response): void {
         UserController.userDao.findUserById(req.params.uid)
-            .then(user => res.json(user))
+            .then((user: User) => res.json(user))
             .catch((status) => res.json(status))
     }
 
-    createUser(req: Request, res: Response): void {
+    public createUser(req: Request, res: Response): void {
         UserController.userDao.createUser(req.body)
-            .then(user => res.json(user))
+            .then((user) => res.json(user))
             .catch((status) => res.json(status))
     }
 
-    deleteUser(req: Request, res: Response): void {
+    public deleteUser(req: Request, res: Response): void {
         UserController.userDao.deleteUser(req.params.uid)
-            .then(status => res.json(status))
+            .then((status) => res.json(status))
             .catch((status) => res.json(status))
     }
 
-    updateUser(req: Request, res: Response): void {
+    public updateUser(req: Request, res: Response): void {
         UserController.userDao.updateUser(req.params.uid, req.body)
-            .then(status => res.json(status))
+            .then((status) => res.json(status))
             .catch((status) => res.json(status))
     }
 }

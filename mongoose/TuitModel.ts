@@ -1,6 +1,4 @@
 import mongoose from "mongoose"
-import TuitSchema from "./TuitSchema"
+import {TuitSchema} from "./TuitSchema"
 
-const TuitModel = mongoose.model('TuitModel', TuitSchema)
-
-export default TuitModel
+export const TuitModel = mongoose.model("TuitModel", TuitSchema)

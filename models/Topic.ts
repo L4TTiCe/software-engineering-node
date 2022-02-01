@@ -1,3 +1,3 @@
-export default class Topic {
+export class Topic {
     topic: string = ''
 }
