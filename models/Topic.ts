@@ -1,3 +1,3 @@
 export class Topic {
-    topic: string = ''
+    public topic: string = ""
 }

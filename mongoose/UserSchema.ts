@@ -14,5 +14,5 @@ export const UserSchema = new mongoose.Schema({
     biography: String,
     dateOfBirth: Date,
     joined: {type: Date, default: Date.now},
-    location: {type: mongoose.Schema.Types.ObjectId, ref: "Location"}
+    location: {type: mongoose.Schema.Types.ObjectId, ref: "Location"},
 }, {collection: "users"})

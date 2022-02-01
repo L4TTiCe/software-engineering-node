@@ -1,5 +1,5 @@
-import express from 'express'
-import mongoose from 'mongoose'
+import express from "express"
+import mongoose from "mongoose"
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 
@@ -8,7 +8,7 @@ mongoose.connect("mongodb://root:root_docker12345@mongodb:27017")
     .catch((err: any) => {
         console.log(err)
     })
-mongoose.connection.once('open', () => {
+mongoose.connection.once("open", () => {
     console.log("MongoDB connection established successfully")
 })
 

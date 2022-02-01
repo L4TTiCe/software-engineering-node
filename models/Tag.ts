@@ -1,3 +1,3 @@
 export class Tag {
-    tag: string = ""
+    public tag: string = ""
 }
