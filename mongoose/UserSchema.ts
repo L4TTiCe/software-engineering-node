@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Location from "../models/Location";
+import Location from "../models/Location"
 
 const UserSchema = new mongoose.Schema({
     username: {type: String, required: true},
@@ -15,6 +15,6 @@ const UserSchema = new mongoose.Schema({
     dateOfBirth: Date,
     joined: {type: Date, default: Date.now},
     location:  {type: mongoose.Schema.Types.ObjectId, ref: 'Location'}
-}, {collection: 'users'});
+}, {collection: 'users'})
 
-export default UserSchema;
+export default UserSchema

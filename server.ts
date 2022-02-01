@@ -1,7 +1,7 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import UserController from "./controllers/UserController";
-import TuitController from "./controllers/TuitController";
+import express from 'express'
+import mongoose from 'mongoose'
+import UserController from "./controllers/UserController"
+import TuitController from "./controllers/TuitController"
 
 // Connecting to DB
 mongoose.connect('mongodb://root:root_docker12345@mongodb:27017')
@@ -9,7 +9,7 @@ mongoose.connect('mongodb://root:root_docker12345@mongodb:27017')
         console.log(err)
     })
 mongoose.connection.once('open', () => {
-    console.log('MongoDB connection established successfully');
+    console.log('MongoDB connection established successfully')
 })
 
 
@@ -18,7 +18,7 @@ UserController.getInstance(app)
 TuitController.getInstance(app)
 
 app.get('/hello', (req, res) =>
-    res.send('Hello World!'));
+    res.send('Hello World!'))
 
-const PORT = 4000;
-app.listen(process.env.PORT || PORT);
+const PORT = 4000
+app.listen(process.env.PORT || PORT)

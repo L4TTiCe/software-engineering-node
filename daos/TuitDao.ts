@@ -1,8 +1,8 @@
-import Tuit from "../models/Tuit";
-import TuitModel from "../mongoose/TuitModel";
-import TuitDaoI from "../interfaces/TuitDaoI";
-import UserDao from "../daos/UserDao";
-import User from "../models/User";
+import Tuit from "../models/Tuit"
+import TuitModel from "../mongoose/TuitModel"
+import TuitDaoI from "../interfaces/TuitDaoI"
+import UserDao from "../daos/UserDao"
+import User from "../models/User"
 
 export default class TuitDao implements TuitDaoI {
     private static tuitDao: TuitDao = new TuitDao()
@@ -15,26 +15,33 @@ export default class TuitDao implements TuitDaoI {
     }
 
     async createTuit(tuit: Tuit): Promise<Tuit> {
-        return TuitModel.create(tuit);
+        return TuitModel
+            .create(tuit)
     }
 
     async deleteTuit(tid: string): Promise<any> {
-        return TuitModel.deleteOne({_id: tid});
+        return TuitModel
+            .deleteOne({_id: tid})
     }
 
     async findAllTuits(): Promise<Tuit[]> {
-        return TuitModel.find().populate('postedBy');
+        return TuitModel
+            .find()
+            .populate('postedBy')
     }
 
     async findTuitById(tid: string): Promise<Tuit> {
-        return TuitModel.findById(tid).populate('postedBy');
+        return TuitModel
+            .findById(tid)
+            .populate('postedBy')
     }
 
     async findTuitsByUser(uid: string): Promise<Tuit[]> {
-        let userDao = UserDao.getInstance();
-        const user: User = await userDao.findUserById(uid)
+        const user: User = await UserDao.getInstance()
+            .findUserById(uid)
 
-        return TuitModel.find({postedBy: user});
+        return TuitModel
+            .find({postedBy: user})
     }
 
     async updateTuit(tid: string, tuit: Tuit): Promise<any> {

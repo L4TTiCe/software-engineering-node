@@ -3,4 +3,4 @@ enum MaritalStatus {
     Single = 'SINGLE',
 }
 
-export default MaritalStatus;
+export default MaritalStatus
