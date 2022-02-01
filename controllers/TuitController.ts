@@ -4,12 +4,9 @@ import TuitDao from "../daos/TuitDao";
 import TuitControllerI from "../interfaces/TuitControllerI";
 
 export default class TuitController implements TuitControllerI {
-    app: Express;
-    tuitDao: TuitDao;
-    constructor(app: Express, tuitDao: TuitDao) {
-        this.app = app;
-        this.tuitDao = tuitDao;
-        console.log(tuitDao)
+    private tuitDao: TuitDao;
+    constructor(app: Express) {
+        this.tuitDao = TuitDao.getInstance();
 
         // Use body-parser middleware to read req.body
         // Reference:
@@ -17,12 +14,12 @@ export default class TuitController implements TuitControllerI {
         app.use(bodyParser.urlencoded({ extended: false }))
         app.use(bodyParser.json())
 
-        this.app.get('/tuits', this.findAllTuits.bind(this));
-        this.app.get('/tuits/:tuitid', this.findTuitById.bind(this));
-        this.app.post('/tuits', this.createTuit.bind(this));
-        this.app.delete('/tuits/:tuitid', this.deleteTuit).bind(this);
-        this.app.put('/tuits/:tuitid', this.updateTuit.bind(this));
-        this.app.get('/users/:userid/tuits', this.findTuitsByUser.bind(this));
+        app.get('/tuits', this.findAllTuits.bind(this));
+        app.get('/tuits/:tid', this.findTuitById.bind(this));
+        app.post('/tuits', this.createTuit.bind(this));
+        app.delete('/tuits/:tid', this.deleteTuit).bind(this);
+        app.put('/tuits/:tid', this.updateTuit.bind(this));
+        app.get('/users/:uid/tuits', this.findTuitsByUser.bind(this));
     }
 
     createTuit(req: Request, res: Response): void {
@@ -31,7 +28,7 @@ export default class TuitController implements TuitControllerI {
     }
 
     deleteTuit(req: Request, res: Response): void {
-        this.tuitDao.deleteTuit(req.params.tuitid)
+        this.tuitDao.deleteTuit(req.params.tid)
             .then(status => res.json(status));
     }
 
@@ -41,17 +38,17 @@ export default class TuitController implements TuitControllerI {
     }
 
     findTuitById(req: Request, res: Response): void {
-        this.tuitDao.findTuitById(req.params.tuitid)
+        this.tuitDao.findTuitById(req.params.tid)
             .then(tuit => res.json(tuit))
     }
 
     findTuitsByUser(req: Request, res: Response): void {
-        this.tuitDao.findTuitsByUser(req.params.tuitid)
+        this.tuitDao.findTuitsByUser(req.params.uid)
             .then(tuits => res.json(tuits))
     }
 
     updateTuit(req: Request, res: Response): void {
-        this.tuitDao.updateTuit(req.params.tuitid, req.body)
+        this.tuitDao.updateTuit(req.params.tid, req.body)
             .then(status => res.json(status));
     }
 

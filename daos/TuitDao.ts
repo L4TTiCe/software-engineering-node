@@ -5,6 +5,12 @@ import UserDao from "../daos/UserDao";
 import User from "../models/User";
 
 export default class TuitDao implements TuitDaoI {
+    static tuitDao: TuitDao = new TuitDao()
+
+    static getInstance(): TuitDao {
+        return this.tuitDao
+    }
+
     async createTuit(tuit: Tuit): Promise<Tuit> {
         return TuitModel.create(tuit);
     }
