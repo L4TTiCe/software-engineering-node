@@ -1,4 +1,4 @@
-import {Request, Response, Express} from "express"
+import {Express, Request, Response} from "express"
 import bodyParser from 'body-parser'
 import TuitDao from "../daos/TuitDao"
 import TuitControllerI from "../interfaces/TuitControllerI"
@@ -7,15 +7,19 @@ export default class TuitController implements TuitControllerI {
     private static tuitDao: TuitDao
     private static tuitController: TuitController | null = null;
 
+    // Prevent Initiation of Object
+    private constructor() {
+    }
+
     public static getInstance(app: Express): TuitController {
-        if(TuitController.tuitController === null) {
+        if (TuitController.tuitController === null) {
             TuitController.tuitController = new TuitController()
             TuitController.tuitDao = TuitDao.getInstance()
 
             // Use body-parser middleware to read req.body
             // Reference:
             // https://stackoverflow.com/questions/9177049/express-js-req-body-undefined
-            app.use(bodyParser.urlencoded({ extended: false }))
+            app.use(bodyParser.urlencoded({extended: false}))
             app.use(bodyParser.json())
 
             app.get('/tuits', TuitController.tuitController.findAllTuits)
@@ -27,9 +31,6 @@ export default class TuitController implements TuitControllerI {
         }
         return TuitController.tuitController
     }
-
-    // Prevent Initiation of Object
-    private constructor() {}
 
     createTuit(req: Request, res: Response): void {
         TuitController.tuitDao.createTuit(req.body)

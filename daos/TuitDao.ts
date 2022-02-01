@@ -8,7 +8,8 @@ export default class TuitDao implements TuitDaoI {
     private static tuitDao: TuitDao = new TuitDao()
 
     // Prevent Initiation of Object
-    private constructor() {}
+    private constructor() {
+    }
 
     static getInstance(): TuitDao {
         return this.tuitDao

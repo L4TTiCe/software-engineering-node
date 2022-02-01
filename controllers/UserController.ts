@@ -1,4 +1,4 @@
-import {Request, Response, Express} from "express"
+import {Express, Request, Response} from "express"
 import UserDao from "../daos/UserDao"
 import UserControllerI from "../interfaces/UserControllerI"
 import bodyParser from 'body-parser'
@@ -8,15 +8,19 @@ export default class UserController implements UserControllerI {
     private static userDao: UserDao
     private static userController: UserController | null = null
 
+    // Prevent Initiation of Object
+    private constructor() {
+    }
+
     public static getInstance(app: Express): UserController {
-        if(UserController.userController === null) {
+        if (UserController.userController === null) {
             UserController.userController = new UserController()
             UserController.userDao = UserDao.getInstance()
 
             // Use body-parser middleware to read req.body
             // Reference:
             // https://stackoverflow.com/questions/9177049/express-js-req-body-undefined
-            app.use(bodyParser.urlencoded({ extended: false }))
+            app.use(bodyParser.urlencoded({extended: false}))
             app.use(bodyParser.json())
 
             app.get('/users', UserController.userController.findAllUsers)
@@ -27,9 +31,6 @@ export default class UserController implements UserControllerI {
         }
         return UserController.userController
     }
-
-    // Prevent Initiation of Object
-    private constructor() {}
 
     findAllUsers(req: Request, res: Response): void {
         UserController.userDao.findAllUsers()

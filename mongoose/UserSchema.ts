@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     password: {type: String, required: true},
     firstName: String,
     lastName: String,
-    email:  {type: String, required: true},
+    email: {type: String, required: true},
     profilePhoto: String,
     headerImage: String,
     accountType: {type: String, default: 'PERSONAL', enum: ['PERSONAL', 'ACADEMIC', 'PROFESSIONAL']},
@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
     biography: String,
     dateOfBirth: Date,
     joined: {type: Date, default: Date.now},
-    location:  {type: mongoose.Schema.Types.ObjectId, ref: 'Location'}
+    location: {type: mongoose.Schema.Types.ObjectId, ref: 'Location'}
 }, {collection: 'users'})
 
 export default UserSchema

@@ -6,7 +6,8 @@ export default class UserDao implements UserDaoI {
     private static userDao: UserDao = new UserDao()
 
     // Prevent Initiation of Object
-    private constructor() {}
+    private constructor() {
+    }
 
     static getInstance(): UserDao {
         return this.userDao
@@ -27,7 +28,7 @@ export default class UserDao implements UserDaoI {
             .create(user)
     }
 
-    async deleteUser(uid: string):  Promise<any> {
+    async deleteUser(uid: string): Promise<any> {
         return UserModel
             .deleteOne({_id: uid})
     }
