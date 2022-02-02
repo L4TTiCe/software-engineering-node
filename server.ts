@@ -1,5 +1,4 @@
-import express from "express"
-import {Request, Response} from "express"
+import express, {Request, Response} from "express"
 import mongoose from "mongoose"
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
