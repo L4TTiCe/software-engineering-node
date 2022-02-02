@@ -1,6 +1,6 @@
 import {Request, Response} from "express"
 
-export default interface UserControllerI {
+export interface UserControllerI {
     findAllUsers(req: Request, res: Response): void
 
     findUserById(req: Request, res: Response): void

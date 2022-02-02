@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import Location from "../models/Location"
 
-const UserSchema = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
     firstName: String,
@@ -9,12 +8,13 @@ const UserSchema = new mongoose.Schema({
     email: {type: String, required: true},
     profilePhoto: String,
     headerImage: String,
-    accountType: {type: String, default: 'PERSONAL', enum: ['PERSONAL', 'ACADEMIC', 'PROFESSIONAL']},
-    maritalStatus: {type: String, default: 'SINGLE', enum: ['MARRIED', 'SINGLE']},
+    accountType: {type: String, default: "PERSONAL", enum: ["PERSONAL", "ACADEMIC", "PROFESSIONAL"]},
+    maritalStatus: {type: String, default: "SINGLE", enum: ["MARRIED", "SINGLE"]},
     biography: String,
     dateOfBirth: Date,
     joined: {type: Date, default: Date.now},
-    location: {type: mongoose.Schema.Types.ObjectId, ref: 'Location'}
-}, {collection: 'users'})
-
-export default UserSchema
+    location: {
+        latitude: Number,
+        longitude: Number,
+    },
+}, {collection: "users"})
