@@ -3,7 +3,6 @@ version: '3'
 services:
   mongodb:
     image: mongo:5
-    command: mongod --quiet --logpath /dev/null
     restart: unless-stopped
     env_file: ./.env
     environment:
@@ -13,6 +12,8 @@ services:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
     volumes:
       - db:/data/db
+    networks:
+      - link-network
   node:
     depends_on:
       - mongodb
@@ -26,6 +27,11 @@ services:
       - DB_PASSWORD=$MONGODB_PASSWORD
       - DB_NAME=$MONGODB_DATABASE
       - DB_PORT=$MONGODB_DOCKER_PORT
+    networks:
+      - link-network
 
 volumes:
   db:
+networks:
+  link-network:
+    driver: bridge
