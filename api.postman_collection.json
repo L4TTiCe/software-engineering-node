@@ -1,176 +1,554 @@
 {
 	"info": {
-		"_postman_id": "e8e8dd8e-4526-432c-bdb1-3a4af0abbfea",
-		"name": "Node",
+		"_postman_id": "315058bf-3755-4a4e-8d34-eb91111afcfa",
+		"name": "Tuiter APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "User",
+			"name": "Heroku",
 			"item": [
 				{
-					"name": "GET All Users",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:4000/users",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET User from UID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:4000/users/61f8008b625bc541dc9c65e9",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"users",
-								"61f8008b625bc541dc9c65e9"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CREATE User",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"test\",\n    \"password\": \"password\",\n    \"email\": \"test@tester.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "User",
+					"item": [
+						{
+							"name": "GET All Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/users",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"users"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "localhost:4000/users",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"users"
-							]
+						{
+							"name": "GET User from UID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/users/61fa03391bbe71ae419a7b35",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"users",
+										"61fa03391bbe71ae419a7b35"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"nasa\",\n    \"password\": \"nasa321\",\n    \"firstName\": \"NASA\",\n    \"lastName\": \"Gov\",\n    \"email\": \"space@nasa.gov\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/users",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/users/61f87680a28968282c16a4a5",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"users",
+										"61f87680a28968282c16a4a5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE User",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/users/61f87680a28968282c16a4a5",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"users",
+										"61f87680a28968282c16a4a5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "DELETE User",
-					"request": {
-						"method": "DELETE",
-						"header": []
-					},
-					"response": []
+					"name": "Tuit",
+					"item": [
+						{
+							"name": "GET All Tuits",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/tuits",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"tuits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Tuit by TID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/tuits/61fa03c61bbe71ae419a7b3e",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"tuits",
+										"61fa03c61bbe71ae419a7b3e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Tuits by User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/users/61f8008b625bc541dc9c65e9/tuits",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"users",
+										"61f8008b625bc541dc9c65e9",
+										"tuits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE Tuit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tuit\": \"@SpaceX Dragon spacecraft returns to Earth with @ISS_Research that could help us better understand neurodegenerative diseases, gene expression, & muscle atrophy. Undocking from the @Space_Station is at 9:05am ET (13:05 UT). Watch:\",\n    \"postedBy\": \"61fa03011bbe71ae419a7b33\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/tuits",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"tuits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Tuit",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/tuits/61f9dedf22e1f5b30ab545b0",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"tuits",
+										"61f9dedf22e1f5b30ab545b0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE Tuit",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tuit\": \"Tuit by NASA!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://fse-node.herokuapp.com/tuits/61f8770f8ab09271b761ca27",
+									"protocol": "https",
+									"host": [
+										"fse-node",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"tuits",
+										"61f8770f8ab09271b761ca27"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				},
 				{
-					"name": "UPDATE User",
-					"request": {
-						"method": "PUT",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Tuit",
-			"item": [
-				{
-					"name": "GET All Tuits",
+					"name": "Hello World",
 					"request": {
 						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "GET Tuit by TID",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "GET Tuits by User",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "CREATE Tuit",
-					"request": {
-						"method": "POST",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Tuit",
-					"request": {
-						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
+							"raw": "https://fse-node.herokuapp.com/hello",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"fse-node",
+								"herokuapp",
+								"com"
 							],
-							"port": "4000",
 							"path": [
-								"tuits",
-								"61f8770f8ab09271b761ca27"
+								"hello"
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "UPDATE Tuit",
-					"request": {
-						"method": "GET",
-						"header": []
 					},
 					"response": []
 				}
 			]
 		},
 		{
-			"name": "Hello World",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/hello",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"hello"
+			"name": "Local",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "GET All Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET User from UID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/61f8008b625bc541dc9c65e9",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"61f8008b625bc541dc9c65e9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"test2\",\n    \"password\": \"password\",\n    \"email\": \"test@tester.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:4000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/61f87680a28968282c16a4a5",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"61f87680a28968282c16a4a5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE User",
+							"request": {
+								"method": "PUT",
+								"header": []
+							},
+							"response": []
+						}
 					]
+				},
+				{
+					"name": "Tuit",
+					"item": [
+						{
+							"name": "GET All Tuits",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/tuits",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tuits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Tuit by TID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tuits",
+										"61f8770f8ab09271b761ca27"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Tuits by User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/61f8008b625bc541dc9c65e9/tuits",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"61f8008b625bc541dc9c65e9",
+										"tuits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE Tuit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tuit\": \"To Be Deleted\",\n    \"postedBy\": \"61f8008b625bc541dc9c65e9\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:4000/tuits",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tuits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Tuit",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/tuits/61f9dedf22e1f5b30ab545b0",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tuits",
+										"61f9dedf22e1f5b30ab545b0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE Tuit",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tuit\": \"Tuit by NASA!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tuits",
+										"61f8770f8ab09271b761ca27"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Hello World",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/hello",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"hello"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
