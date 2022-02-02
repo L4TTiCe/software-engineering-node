@@ -4,7 +4,14 @@ import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 
 // Connecting to DB
-mongoose.connect("mongodb://root:root_docker12345@mongodb:27017")
+let db_uri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
+    + ":" + process.env.MONGODB_PASSWORD + "@" + process.env.MONGODB_HOST
+if (process.env.MONGODB_PORT) {
+    db_uri = db_uri + process.env.MONGODB_PORT
+}
+console.log("Inferred DB_URI: " + db_uri)
+
+mongoose.connect(db_uri)
     .catch((err: object) => {
         console.log(err)
     })
