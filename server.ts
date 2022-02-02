@@ -1,11 +1,12 @@
 import express from "express"
+import {Request, Response} from "express"
 import mongoose from "mongoose"
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 
 // Connecting to DB
 mongoose.connect("mongodb://root:root_docker12345@mongodb:27017")
-    .catch((err: any) => {
+    .catch((err: object) => {
         console.log(err)
     })
 mongoose.connection.once("open", () => {
@@ -17,7 +18,7 @@ const app = express();
 UserController.getInstance(app)
 TuitController.getInstance(app)
 
-app.get("/hello", (req, res) =>
+app.get("/hello", (req: Request, res: Response) =>
     res.send("Hello World!"))
 
 const PORT = 4000

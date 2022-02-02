@@ -20,7 +20,7 @@ export class TuitDao implements TuitDaoI {
             .create(tuit)
     }
 
-    public async deleteTuit(tid: string): Promise<any> {
+    public async deleteTuit(tid: string): Promise<object> {
         return TuitModel
             .deleteOne({_id: tid})
     }
@@ -45,7 +45,7 @@ export class TuitDao implements TuitDaoI {
             .find({postedBy: user})
     }
 
-    public async updateTuit(tid: string, tuit: Tuit): Promise<any> {
+    public async updateTuit(tid: string, tuit: Tuit): Promise<object> {
         return TuitModel.updateOne({_id: tid}, {$set: tuit})
     }
 

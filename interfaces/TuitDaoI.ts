@@ -11,7 +11,7 @@ export interface TuitDaoI {
 
     createTuit(tuit: Tuit): Promise<Tuit>
 
-    updateTuit(tid: string, tuit: Tuit): Promise<any>
+    updateTuit(tid: string, tuit: Tuit): Promise<object>
 
-    deleteTuit(tid: string): Promise<any>
+    deleteTuit(tid: string): Promise<object>
 }

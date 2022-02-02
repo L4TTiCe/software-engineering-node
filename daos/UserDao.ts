@@ -23,17 +23,17 @@ export class UserDao implements UserDaoI {
             .findById(uid)
     }
 
-    public async createUser(user: User): Promise<any> {
+    public async createUser(user: User): Promise<User> {
         return UserModel
             .create(user)
     }
 
-    public async deleteUser(uid: string): Promise<any> {
+    public async deleteUser(uid: string): Promise<object> {
         return UserModel
             .deleteOne({_id: uid})
     }
 
-    public async updateUser(uid: string, user: User): Promise<any> {
+    public async updateUser(uid: string, user: User): Promise<object> {
         return UserModel
             .updateOne({_id: uid}, {$set: user})
     }
