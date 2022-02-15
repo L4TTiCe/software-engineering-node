@@ -3,7 +3,7 @@
  */
 import {Like} from "../models/Like"
 
-export default interface LikeDaoI {
+export interface LikeDaoI {
     findAllUsersThatLikedTuit(tid: string): Promise<Like[]>
 
     findAllTuitsLikedByUser(uid: string): Promise<Like[]>

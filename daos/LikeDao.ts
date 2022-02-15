@@ -1,4 +1,4 @@
-import LikeDaoI from "../interfaces/LikeDaoI";
+import {LikeDaoI} from "../interfaces/LikeDaoI";
 import {Like} from "../models/Like";
 import {LikeModel} from "../mongoose/LikeModel";
 
