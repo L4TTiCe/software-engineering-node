@@ -17,12 +17,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/users",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/users",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"users"
@@ -37,16 +34,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61fa03391bbe71ae419a7b35",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/users/{{NASA_UID}}",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"users",
-										"61fa03391bbe71ae419a7b35"
+										"{{NASA_UID}}"
 									]
 								}
 							},
@@ -67,12 +61,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/users",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/users",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"users"
@@ -87,12 +78,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61f87680a28968282c16a4a5",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/users/61f87680a28968282c16a4a5",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"users",
@@ -108,12 +96,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61f87680a28968282c16a4a5",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/users/61f87680a28968282c16a4a5",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"users",
@@ -134,12 +119,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/tuits",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"tuits"
@@ -154,16 +136,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits/61fa03c61bbe71ae419a7b3e",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/tuits/{{SAPCEX_TID}}",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"tuits",
-										"61fa03c61bbe71ae419a7b3e"
+										"{{SAPCEX_TID}}"
 									]
 								}
 							},
@@ -175,16 +154,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61f8008b625bc541dc9c65e9/tuits",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/tuits",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"users",
-										"61f8008b625bc541dc9c65e9",
+										"{{NASA_UID}}",
 										"tuits"
 									]
 								}
@@ -206,12 +182,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/tuits",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"tuits"
@@ -226,12 +199,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits/61f9dedf22e1f5b30ab545b0",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/tuits/61f9dedf22e1f5b30ab545b0",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"tuits",
@@ -256,16 +226,105 @@
 									}
 								},
 								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits/61f8770f8ab09271b761ca27",
-									"protocol": "https",
+									"raw": "{{HEROKU_URL}}/tuits/61f8770f8ab09271b761ca27",
 									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
+										"{{HEROKU_URL}}"
 									],
 									"path": [
 										"tuits",
 										"61f8770f8ab09271b761ca27"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Like",
+					"item": [
+						{
+							"name": "User Likes Tuit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tuit\": \"620be5588ed648763c86e8ed\",\n    \"likedBy\": \"620be5208ed648763c86e8ea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/likes/{{SPACEX_TID}}",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"users",
+										"{{NASA_UID}}",
+										"likes",
+										"{{SPACEX_TID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Unlikes Tuit",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/unlikes/{{SPACEX_TID}}",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"users",
+										"{{NASA_UID}}",
+										"unlikes",
+										"{{SPACEX_TID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Tuits Liked by User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/likes",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"users",
+										"{{NASA_UID}}",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Users who Liked Tuit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HEROKU_URL}}/tuits/{{SPACEX_TID}}/likes",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"tuits",
+										"{{SPACEX_TID}}",
+										"likes"
 									]
 								}
 							},
@@ -345,7 +404,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"username\": \"test2\",\n    \"password\": \"password\",\n    \"email\": \"test@tester.com\"\n}",
+									"raw": "{\n    \"username\": \"LikeTest\",\n    \"password\": \"iLikeTuits\",\n    \"email\": \"liker@tuiter.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -388,7 +447,18 @@
 							"name": "UPDATE User",
 							"request": {
 								"method": "PUT",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/61f87680a28968282c16a4a5",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"61f87680a28968282c16a4a5"
+									]
+								}
 							},
 							"response": []
 						}
@@ -461,7 +531,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"tuit\": \"To Be Deleted\",\n    \"postedBy\": \"61f8008b625bc541dc9c65e9\"\n}",
+									"raw": "{\n    \"tuit\": \"To Be Liked\",\n    \"postedBy\": \"61f8008b625bc541dc9c65e9\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -531,6 +601,102 @@
 					]
 				},
 				{
+					"name": "Like",
+					"item": [
+						{
+							"name": "User Likes Tuit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:4000/users/620be5208ed648763c86e8ea/likes/620be5588ed648763c86e8ed",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"620be5208ed648763c86e8ea",
+										"likes",
+										"620be5588ed648763c86e8ed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Unlikes Tuit",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/620be5208ed648763c86e8ea/unlikes/620be5588ed648763c86e8ed",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"620be5208ed648763c86e8ea",
+										"unlikes",
+										"620be5588ed648763c86e8ed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Tuits Liked by User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/620be5208ed648763c86e8ea/likes",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										"620be5208ed648763c86e8ea",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Users who Liked Tuit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/tuits/620be5588ed648763c86e8ed/likes",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tuits",
+										"620be5588ed648763c86e8ed",
+										"likes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Hello World",
 					"request": {
 						"method": "GET",
@@ -549,6 +715,44 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "NASA_UID",
+			"value": "61fa03391bbe71ae419a7b35"
+		},
+		{
+			"key": "HEROKU_URL",
+			"value": "https://fse-node.herokuapp.com"
+		},
+		{
+			"key": "NASA_TID",
+			"value": "61fa03c61bbe71ae419a7b3e"
+		},
+		{
+			"key": "SPACEX_TID",
+			"value": "61fa04081bbe71ae419a7b44"
 		}
 	]
 }
