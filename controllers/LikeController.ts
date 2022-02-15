@@ -50,7 +50,7 @@ export class LikeController implements LikeControllerI {
      */
     public findAllTuitsLikedByUser(req: Request, res: Response): void {
         LikeController.likeDao.findAllTuitsLikedByUser(req.params.uid)
-            .then(likes => res.json(likes))
+            .then((likes) => res.json(likes))
             .catch((status) => res.json(status))
     }
 
@@ -78,9 +78,9 @@ export class LikeController implements LikeControllerI {
     public userLikesTuit(req: Request, res: Response): void {
         LikeController.likeDao.userUnlikesTuit(req.params.uid, req.params.tid).then( () => {
             LikeController.likeDao.userLikesTuit(req.params.uid, req.params.tid)
-                .then(likes => res.json(likes))
+                .then((likes) => res.json(likes))
                 .catch((status) => res.json(status))
-            }
+            },
         )
     }
 
@@ -93,7 +93,7 @@ export class LikeController implements LikeControllerI {
      */
     public userUnlikesTuit(req: Request, res: Response): void {
         LikeController.likeDao.userUnlikesTuit(req.params.uid, req.params.tid)
-            .then(status => res.send(status))
+            .then((status) => res.send(status))
             .catch((status) => res.json(status))
     }
 }
