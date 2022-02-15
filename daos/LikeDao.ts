@@ -28,11 +28,11 @@ export class LikeDao implements LikeDaoI {
             .populate("likedBy")
     }
 
-    public async userLikesTuit(tid: string, uid: string): Promise<Like> {
+    public async userLikesTuit(uid: string, tid: string): Promise<Like> {
         return LikeModel.create({tuit: tid, likedBy: uid})
     }
 
-    public async userUnlikesTuit(tid: string, uid: string): Promise<object> {
+    public async userUnlikesTuit(uid: string, tid: string): Promise<object> {
         return LikeModel.deleteOne({tuit: tid, likedBy: uid})
     }
 
