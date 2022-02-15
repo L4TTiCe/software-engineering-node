@@ -63,7 +63,7 @@ export class LikeController implements LikeControllerI {
      */
     public findAllUsersThatLikedTuit(req: Request, res: Response): void {
         LikeController.likeDao.findAllUsersThatLikedTuit(req.params.tid)
-            .then(likes => res.json(likes))
+            .then((likes) => res.json(likes))
             .catch((status) => res.json(status))
     }
 
