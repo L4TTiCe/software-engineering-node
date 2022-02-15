@@ -15,3 +15,4 @@ export interface Like {
     tuit: Tuit,
     likedBy: User
 }
+
