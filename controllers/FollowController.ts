@@ -88,9 +88,12 @@ export class FollowController implements FollowControllerI {
      */
     public userFollowsUser(req: Request, res: Response): void {
         FollowController.followDao
-            .userFollowsUser(req.params.followed_uid, req.params.following_uid)
-            .then((follow: Follow) => res.json(follow))
-            .catch((status) => res.json(status))
+            .userUnfollowsUser(req.params.followed_uid, req.params.following_uid).then(() => {
+                FollowController.followDao
+                    .userFollowsUser(req.params.followed_uid, req.params.following_uid)
+                    .then((follow: Follow) => res.json(follow))
+                    .catch((status) => res.json(status))
+        })
     }
 
     /**
