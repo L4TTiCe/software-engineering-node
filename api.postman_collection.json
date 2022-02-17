@@ -1,554 +1,1144 @@
 {
-	"info": {
-		"_postman_id": "315058bf-3755-4a4e-8d34-eb91111afcfa",
-		"name": "Tuiter APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Heroku",
-			"item": [
-				{
-					"name": "User",
-					"item": [
-						{
-							"name": "GET All Users",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/users",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET User from UID",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61fa03391bbe71ae419a7b35",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"users",
-										"61fa03391bbe71ae419a7b35"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "CREATE User",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\": \"nasa\",\n    \"password\": \"nasa321\",\n    \"firstName\": \"NASA\",\n    \"lastName\": \"Gov\",\n    \"email\": \"space@nasa.gov\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/users",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE User",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61f87680a28968282c16a4a5",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"users",
-										"61f87680a28968282c16a4a5"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "UPDATE User",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61f87680a28968282c16a4a5",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"users",
-										"61f87680a28968282c16a4a5"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Tuit",
-					"item": [
-						{
-							"name": "GET All Tuits",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"tuits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Tuit by TID",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits/61fa03c61bbe71ae419a7b3e",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"tuits",
-										"61fa03c61bbe71ae419a7b3e"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Tuits by User",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/users/61f8008b625bc541dc9c65e9/tuits",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"users",
-										"61f8008b625bc541dc9c65e9",
-										"tuits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "CREATE Tuit",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"tuit\": \"@SpaceX Dragon spacecraft returns to Earth with @ISS_Research that could help us better understand neurodegenerative diseases, gene expression, & muscle atrophy. Undocking from the @Space_Station is at 9:05am ET (13:05 UT). Watch:\",\n    \"postedBy\": \"61fa03011bbe71ae419a7b33\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"tuits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE Tuit",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits/61f9dedf22e1f5b30ab545b0",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"tuits",
-										"61f9dedf22e1f5b30ab545b0"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "UPDATE Tuit",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"tuit\": \"Tuit by NASA!\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://fse-node.herokuapp.com/tuits/61f8770f8ab09271b761ca27",
-									"protocol": "https",
-									"host": [
-										"fse-node",
-										"herokuapp",
-										"com"
-									],
-									"path": [
-										"tuits",
-										"61f8770f8ab09271b761ca27"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Hello World",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://fse-node.herokuapp.com/hello",
-							"protocol": "https",
-							"host": [
-								"fse-node",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"hello"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Local",
-			"item": [
-				{
-					"name": "User",
-					"item": [
-						{
-							"name": "GET All Users",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/users",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET User from UID",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/users/61f8008b625bc541dc9c65e9",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"users",
-										"61f8008b625bc541dc9c65e9"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "CREATE User",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\": \"test2\",\n    \"password\": \"password\",\n    \"email\": \"test@tester.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:4000/users",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"users"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE User",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/users/61f87680a28968282c16a4a5",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"users",
-										"61f87680a28968282c16a4a5"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "UPDATE User",
-							"request": {
-								"method": "PUT",
-								"header": []
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Tuit",
-					"item": [
-						{
-							"name": "GET All Tuits",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/tuits",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"tuits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Tuit by TID",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"tuits",
-										"61f8770f8ab09271b761ca27"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET Tuits by User",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/users/61f8008b625bc541dc9c65e9/tuits",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"users",
-										"61f8008b625bc541dc9c65e9",
-										"tuits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "CREATE Tuit",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"tuit\": \"To Be Deleted\",\n    \"postedBy\": \"61f8008b625bc541dc9c65e9\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:4000/tuits",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"tuits"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "DELETE Tuit",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/tuits/61f9dedf22e1f5b30ab545b0",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"tuits",
-										"61f9dedf22e1f5b30ab545b0"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "UPDATE Tuit",
-							"request": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"tuit\": \"Tuit by NASA!\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"tuits",
-										"61f8770f8ab09271b761ca27"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Hello World",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:4000/hello",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"hello"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "d7eef68b-57fe-43d4-b208-7d57db8a9f29",
+    "name": "Tuiter APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Heroku",
+      "item": [
+        {
+          "name": "User",
+          "item": [
+            {
+              "name": "GET All Users",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET User from UID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CREATE User",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"nasa\",\n    \"password\": \"nasa321\",\n    \"firstName\": \"NASA\",\n    \"lastName\": \"Gov\",\n    \"email\": \"space@nasa.gov\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f87680a28968282c16a4a5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE User",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f87680a28968282c16a4a5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Tuit",
+          "item": [
+            {
+              "name": "GET All Tuits",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/tuits",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "tuits"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Tuit by TID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/tuits/:tid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "tuits",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Tuits by User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/tuits",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "tuits"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CREATE Tuit",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tuit\": \"@SpaceX Dragon spacecraft returns to Earth with @ISS_Research that could help us better understand neurodegenerative diseases, gene expression, & muscle atrophy. Undocking from the @Space_Station is at 9:05am ET (13:05 UT). Watch:\",\n    \"postedBy\": \"61fa03011bbe71ae419a7b33\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{HEROKU_URL}}/tuits",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "tuits"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE Tuit",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/tuits/:tid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "tuits",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f9dedf22e1f5b30ab545b0"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE Tuit",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tuit\": \"Tuit by NASA!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{HEROKU_URL}}/tuits/:tid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "tuits",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Like",
+          "item": [
+            {
+              "name": "User Likes Tuit",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tuit\": \"620be5588ed648763c86e8ed\",\n    \"likedBy\": \"620be5208ed648763c86e8ea\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/likes/:tid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "likes",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "User Unlikes Tuit",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/unlikes/:tid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "unlikes",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Tuits Liked by User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/likes",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Users who Liked Tuit",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/tuits/:tid/likes",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "tuits",
+                    ":tid",
+                    "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Follow",
+          "item": [
+            {
+              "name": "User Follows User",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "{{SPACEX_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "User Unfollows User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "{{SPACEX_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Followed by a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/follows",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "follows"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Following a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/followers",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "followers"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{SPACEX_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Hello World",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fse-node.herokuapp.com/hello",
+              "protocol": "https",
+              "host": [
+                "fse-node",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "hello"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Local",
+      "item": [
+        {
+          "name": "User",
+          "item": [
+            {
+              "name": "GET All Users",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET User from UID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CREATE User",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"LikeTest\",\n    \"password\": \"iLikeTuits\",\n    \"email\": \"liker@tuiter.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:4000/users",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE User",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f87680a28968282c16a4a5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Tuit",
+          "item": [
+            {
+              "name": "GET All Tuits",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/tuits",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "tuits"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Tuit by TID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/tuits/:tid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "tuits",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Tuits by User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/tuits",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "tuits"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CREATE Tuit",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tuit\": \"To Be Liked\",\n    \"postedBy\": \"61f8008b625bc541dc9c65e9\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:4000/tuits",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "tuits"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DELETE Tuit",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/tuits/:tid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "tuits",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f9dedf22e1f5b30ab545b0"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UPDATE Tuit",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"tuit\": \"Tuit by NASA!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:4000/tuits/:tid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "tuits",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Like",
+          "item": [
+            {
+              "name": "User Likes Tuit",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:4000/users/:uid/likes/:tid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "likes",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "620be5588ed648763c86e8ed"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "User Unlikes Tuit",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/unlikes/:tid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "unlikes",
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "620be5588ed648763c86e8ed"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Tuits Liked by User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/likes",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET Users who Liked Tuit",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/tuits/:tid/likes",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "tuits",
+                    ":tid",
+                    "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "620be5588ed648763c86e8ed"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Follow",
+          "item": [
+            {
+              "name": "User Follows User",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "User Unfollows User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Followed by a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/follows",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "follows"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Following a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/followers",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "followers"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Hello World",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:4000/hello",
+              "host": [
+                "localhost"
+              ],
+              "port": "4000",
+              "path": [
+                "hello"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "NASA_UID",
+      "value": "61fa03391bbe71ae419a7b35"
+    },
+    {
+      "key": "HEROKU_URL",
+      "value": "https://fse-node.herokuapp.com"
+    },
+    {
+      "key": "NASA_TID",
+      "value": "61fa03c61bbe71ae419a7b3e"
+    },
+    {
+      "key": "SPACEX_TID",
+      "value": "61fa04081bbe71ae419a7b44"
+    },
+    {
+      "key": "SPACEX_UID",
+      "value": "61fa03011bbe71ae419a7b33"
+    }
+  ]
 }

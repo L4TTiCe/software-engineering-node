@@ -31,7 +31,7 @@ export class LikeController implements LikeControllerI {
     }
 
     public static getInstance = (app: Express): LikeController => {
-        if(LikeController.likeController === null) {
+        if (LikeController.likeController === null) {
             LikeController.likeController = new LikeController();
             app.get("/users/:uid/likes", LikeController.likeController.findAllTuitsLikedByUser);
             app.get("/tuits/:tid/likes", LikeController.likeController.findAllUsersThatLikedTuit);
@@ -76,10 +76,10 @@ export class LikeController implements LikeControllerI {
      * database
      */
     public userLikesTuit(req: Request, res: Response): void {
-        LikeController.likeDao.userUnlikesTuit(req.params.uid, req.params.tid).then( () => {
-            LikeController.likeDao.userLikesTuit(req.params.uid, req.params.tid)
-                .then((likes) => res.json(likes))
-                .catch((status) => res.json(status))
+        LikeController.likeDao.userUnlikesTuit(req.params.uid, req.params.tid).then(() => {
+                LikeController.likeDao.userLikesTuit(req.params.uid, req.params.tid)
+                    .then((likes) => res.json(likes))
+                    .catch((status) => res.json(status))
             },
         )
     }
