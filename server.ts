@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 import {LikeController} from "./controllers/LikeController";
+import {FollowController} from "./controllers/FollowController";
 
 // Connecting to DB
 let db_uri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
@@ -25,6 +26,7 @@ const app = express();
 UserController.getInstance(app)
 TuitController.getInstance(app)
 LikeController.getInstance(app)
+FollowController.getInstance(app)
 
 app.get("/hello", (req: Request, res: Response) =>
     res.send("Hello World!"))
