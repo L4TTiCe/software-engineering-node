@@ -28,14 +28,14 @@ export class FollowDao implements FollowDaoI {
             .populate("userFollowing")
     }
 
-    public async userFollowsUser(followed_uid: string, following_uid: string): Promise<Follow> {
+    public async userFollowsUser(followedUid: string, followingUid: string): Promise<Follow> {
         return FollowModel
-            .create({userFollowed: followed_uid, userFollowing: following_uid})
+            .create({userFollowed: followedUid, userFollowing: followingUid})
     }
 
-    public async userUnfollowsUser(followed_uid: string, following_uid: string): Promise<object> {
+    public async userUnfollowsUser(followedUid: string, followingUid: string): Promise<object> {
         return FollowModel
-            .deleteOne({userFollowed: followed_uid, userFollowing: following_uid})
+            .deleteOne({userFollowed: followedUid, userFollowing: followingUid})
     }
 
 }

@@ -8,7 +8,7 @@ export interface FollowDaoI {
 
     findAllUsersFollowedByUser(uid: string): Promise<Follow[]>
 
-    userFollowsUser(follower_uid: string, following_uid: string): Promise<Follow>
+    userFollowsUser(followerUid: string, followingUid: string): Promise<Follow>
 
-    userUnfollowsUser(follower_uid: string, following_uid: string): Promise<object>
+    userUnfollowsUser(followerUid: string, followingUid: string): Promise<object>
 }
