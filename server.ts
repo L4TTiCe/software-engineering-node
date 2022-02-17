@@ -6,14 +6,15 @@ import {LikeController} from "./controllers/LikeController";
 import {FollowController} from "./controllers/FollowController";
 
 // Connecting to DB
-let db_uri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
+let dbUri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
     + ":" + process.env.MONGODB_PASSWORD + "@" + process.env.MONGODB_HOST
 if (process.env.MONGODB_PORT) {
-    db_uri = db_uri + process.env.MONGODB_PORT
+    dbUri = dbUri + process.env.MONGODB_PORT
 }
-console.log("Inferred DB_URI: " + db_uri)
+console.log("Inferred DB_URI: " + process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
+    + ":*****@" + process.env.MONGODB_HOST)
 
-mongoose.connect(db_uri)
+mongoose.connect(dbUri)
     .catch((err: object) => {
         console.log(err)
     })
