@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "315058bf-3755-4a4e-8d34-eb91111afcfa",
+    "_postman_id": "d7eef68b-57fe-43d4-b208-7d57db8a9f29",
     "name": "Tuiter APIs",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -34,13 +34,19 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/{{NASA_UID}}",
+                  "raw": "{{HEROKU_URL}}/users/:uid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "{{NASA_UID}}"
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
                   ]
                 }
               },
@@ -78,13 +84,19 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/61f87680a28968282c16a4a5",
+                  "raw": "{{HEROKU_URL}}/users/:uid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "61f87680a28968282c16a4a5"
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f87680a28968282c16a4a5"
+                    }
                   ]
                 }
               },
@@ -96,13 +108,19 @@
                 "method": "PUT",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/61f87680a28968282c16a4a5",
+                  "raw": "{{HEROKU_URL}}/users/:uid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "61f87680a28968282c16a4a5"
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f87680a28968282c16a4a5"
+                    }
                   ]
                 }
               },
@@ -136,13 +154,19 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/tuits/{{SAPCEX_TID}}",
+                  "raw": "{{HEROKU_URL}}/tuits/:tid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "tuits",
-                    "{{SAPCEX_TID}}"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
                   ]
                 }
               },
@@ -154,14 +178,20 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/tuits",
+                  "raw": "{{HEROKU_URL}}/users/:uid/tuits",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "{{NASA_UID}}",
+                    ":uid",
                     "tuits"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
                   ]
                 }
               },
@@ -199,13 +229,19 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/tuits/61f9dedf22e1f5b30ab545b0",
+                  "raw": "{{HEROKU_URL}}/tuits/:tid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "tuits",
-                    "61f9dedf22e1f5b30ab545b0"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f9dedf22e1f5b30ab545b0"
+                    }
                   ]
                 }
               },
@@ -226,13 +262,19 @@
                   }
                 },
                 "url": {
-                  "raw": "{{HEROKU_URL}}/tuits/61f8770f8ab09271b761ca27",
+                  "raw": "{{HEROKU_URL}}/tuits/:tid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "tuits",
-                    "61f8770f8ab09271b761ca27"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
                   ]
                 }
               },
@@ -258,15 +300,25 @@
                   }
                 },
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/likes/{{SPACEX_TID}}",
+                  "raw": "{{HEROKU_URL}}/users/:uid/likes/:tid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "{{NASA_UID}}",
+                    ":uid",
                     "likes",
-                    "{{SPACEX_TID}}"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
                   ]
                 }
               },
@@ -278,15 +330,25 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/unlikes/{{SPACEX_TID}}",
+                  "raw": "{{HEROKU_URL}}/users/:uid/unlikes/:tid",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "{{NASA_UID}}",
+                    ":uid",
                     "unlikes",
-                    "{{SPACEX_TID}}"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
                   ]
                 }
               },
@@ -298,14 +360,20 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/users/{{NASA_UID}}/likes",
+                  "raw": "{{HEROKU_URL}}/users/:uid/likes",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "users",
-                    "{{NASA_UID}}",
+                    ":uid",
                     "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
                   ]
                 }
               },
@@ -317,14 +385,135 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{HEROKU_URL}}/tuits/{{SPACEX_TID}}/likes",
+                  "raw": "{{HEROKU_URL}}/tuits/:tid/likes",
                   "host": [
                     "{{HEROKU_URL}}"
                   ],
                   "path": [
                     "tuits",
-                    "{{SPACEX_TID}}",
+                    ":tid",
                     "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "{{SPACEX_TID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Follow",
+          "item": [
+            {
+              "name": "User Follows User",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "{{SPACEX_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "User Unfollows User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "{{NASA_UID}}"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "{{SPACEX_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Followed by a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/follows",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "follows"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{NASA_UID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Following a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{HEROKU_URL}}/users/:uid/followers",
+                  "host": [
+                    "{{HEROKU_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    ":uid",
+                    "followers"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "{{SPACEX_UID}}"
+                    }
                   ]
                 }
               },
@@ -384,14 +573,20 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/users/61f8008b625bc541dc9c65e9",
+                  "raw": "localhost:4000/users/:uid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "61f8008b625bc541dc9c65e9"
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
                   ]
                 }
               },
@@ -430,14 +625,20 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/users/61f87680a28968282c16a4a5",
+                  "raw": "localhost:4000/users/:uid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "61f87680a28968282c16a4a5"
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
                   ]
                 }
               },
@@ -449,14 +650,20 @@
                 "method": "PUT",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/users/61f87680a28968282c16a4a5",
+                  "raw": "localhost:4000/users/:uid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "61f87680a28968282c16a4a5"
+                    ":uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f87680a28968282c16a4a5"
+                    }
                   ]
                 }
               },
@@ -491,14 +698,20 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
+                  "raw": "localhost:4000/tuits/:tid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "tuits",
-                    "61f8770f8ab09271b761ca27"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
                   ]
                 }
               },
@@ -510,15 +723,21 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/users/61f8008b625bc541dc9c65e9/tuits",
+                  "raw": "localhost:4000/users/:uid/tuits",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "61f8008b625bc541dc9c65e9",
+                    ":uid",
                     "tuits"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
                   ]
                 }
               },
@@ -557,14 +776,20 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/tuits/61f9dedf22e1f5b30ab545b0",
+                  "raw": "localhost:4000/tuits/:tid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "tuits",
-                    "61f9dedf22e1f5b30ab545b0"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f9dedf22e1f5b30ab545b0"
+                    }
                   ]
                 }
               },
@@ -585,14 +810,20 @@
                   }
                 },
                 "url": {
-                  "raw": "localhost:4000/tuits/61f8770f8ab09271b761ca27",
+                  "raw": "localhost:4000/tuits/:tid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "tuits",
-                    "61f8770f8ab09271b761ca27"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "61f8770f8ab09271b761ca27"
+                    }
                   ]
                 }
               },
@@ -618,16 +849,26 @@
                   }
                 },
                 "url": {
-                  "raw": "localhost:4000/users/620be5208ed648763c86e8ea/likes/620be5588ed648763c86e8ed",
+                  "raw": "localhost:4000/users/:uid/likes/:tid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "620be5208ed648763c86e8ea",
+                    ":uid",
                     "likes",
-                    "620be5588ed648763c86e8ed"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "620be5588ed648763c86e8ed"
+                    }
                   ]
                 }
               },
@@ -639,16 +880,26 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/users/620be5208ed648763c86e8ea/unlikes/620be5588ed648763c86e8ed",
+                  "raw": "localhost:4000/users/:uid/unlikes/:tid",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "620be5208ed648763c86e8ea",
+                    ":uid",
                     "unlikes",
-                    "620be5588ed648763c86e8ed"
+                    ":tid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "tid",
+                      "value": "620be5588ed648763c86e8ed"
+                    }
                   ]
                 }
               },
@@ -660,15 +911,21 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/users/620be5208ed648763c86e8ea/likes",
+                  "raw": "localhost:4000/users/:uid/likes",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "users",
-                    "620be5208ed648763c86e8ea",
+                    ":uid",
                     "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    }
                   ]
                 }
               },
@@ -680,15 +937,140 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:4000/tuits/620be5588ed648763c86e8ed/likes",
+                  "raw": "localhost:4000/tuits/:tid/likes",
                   "host": [
                     "localhost"
                   ],
                   "port": "4000",
                   "path": [
                     "tuits",
-                    "620be5588ed648763c86e8ed",
+                    ":tid",
                     "likes"
+                  ],
+                  "variable": [
+                    {
+                      "key": "tid",
+                      "value": "620be5588ed648763c86e8ed"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Follow",
+          "item": [
+            {
+              "name": "User Follows User",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "User Unfollows User",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:following_uid/follows/:followed_uid",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":following_uid",
+                    "follows",
+                    ":followed_uid"
+                  ],
+                  "variable": [
+                    {
+                      "key": "following_uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    },
+                    {
+                      "key": "followed_uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Followed by a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/follows",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "follows"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "620be5208ed648763c86e8ea"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GET All users Following a User",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:4000/users/:uid/followers",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "4000",
+                  "path": [
+                    "users",
+                    ":uid",
+                    "followers"
+                  ],
+                  "variable": [
+                    {
+                      "key": "uid",
+                      "value": "61f8008b625bc541dc9c65e9"
+                    }
                   ]
                 }
               },
@@ -753,6 +1135,10 @@
     {
       "key": "SPACEX_TID",
       "value": "61fa04081bbe71ae419a7b44"
+    },
+    {
+      "key": "SPACEX_UID",
+      "value": "61fa03011bbe71ae419a7b33"
     }
   ]
 }
