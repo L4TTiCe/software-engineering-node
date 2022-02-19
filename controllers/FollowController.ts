@@ -15,14 +15,14 @@ import {Follow} from "../models/Follow";
  *     </li>
  *     <li>GET /users/:uid/followers to retrieve all users that are following a user
  *     </li>
- *     <li>POST /users/:uid/follows/:uid to record that a user follows a user
+ *     <li>POST /users/:following_uid/follows/:followed_uid to record that a user follows a user
  *     </li>
- *     <li>DELETE users/:uid/follows/:uid to record that a user
+ *     <li>DELETE /users/:following_uid/follows/:followed_uid to record that a user
  *     no longer follows a user</li>
  * </ul>
  *
- * @property {LikeDao} likeDao Singleton DAO implementing likes CRUD operations
- * @property {LikeController} LikeController Singleton controller implementing
+ * @property {FollowDao} FollowDao Singleton DAO implementing follow CRUD operations
+ * @property {FollowController} FollowController Singleton controller implementing
  * RESTful Web service API
  */
 export class FollowController implements FollowControllerI {
