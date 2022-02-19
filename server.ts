@@ -4,6 +4,7 @@ import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 import {LikeController} from "./controllers/LikeController";
 import {FollowController} from "./controllers/FollowController";
+import {BookmarkController} from "./controllers/BookmarkController";
 
 // Connecting to DB
 let dbUri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
@@ -28,6 +29,7 @@ UserController.getInstance(app)
 TuitController.getInstance(app)
 LikeController.getInstance(app)
 FollowController.getInstance(app)
+BookmarkController.getInstance(app)
 
 app.get("/hello", (req: Request, res: Response) =>
     res.send("Hello World!"))

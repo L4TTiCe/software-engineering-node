@@ -28,13 +28,13 @@ export class TuitDao implements TuitDaoI {
     public async findAllTuits(): Promise<Tuit[]> {
         return TuitModel
             .find()
-            .populate("postedBy")
+            .populate("postedBy", {'password': 0})
     }
 
     public async findTuitById(tid: string): Promise<Tuit> {
         return TuitModel
             .findById(tid)
-            .populate("postedBy")
+            .populate("postedBy", {'password': 0})
     }
 
     public async findTuitsByUser(uid: string): Promise<Tuit[]> {
