@@ -54,9 +54,13 @@ export class BookmarkController implements BookmarkControllerI {
 
     public userBookmarksTuit(req: Request, res: Response): void {
         BookmarkController.bookmarkDao
-            .userBookmarksTuit(req.params.uid, req.params.tid)
-            .then((bookmark: Bookmark) => res.json(bookmark))
-            .catch((status) => res.json(status))
+            .userUnbookmarksTuits(req.params.uid, req.params.tid)
+            .then(() => {
+                BookmarkController.bookmarkDao
+                    .userBookmarksTuit(req.params.uid, req.params.tid)
+                    .then((bookmark: Bookmark) => res.json(bookmark))
+                    .catch((status) => res.json(status))
+            })
     }
 
     public userUnbookmarksTuit(req: Request, res: Response): void {
