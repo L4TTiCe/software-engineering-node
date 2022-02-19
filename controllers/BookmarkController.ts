@@ -1,10 +1,10 @@
 /**
  * @file Controller RESTful Web service API for bookmark resource
  */
-import {Express, Request, Response} from "express"
-import {BookmarkDao} from "../daos/BookmarkDao"
-import {BookmarkControllerI} from "../interfaces/bookmark/BookmarkControllerI"
-import {Bookmark} from "../models/Bookmark"
+import {Express, Request, Response} from "express";
+import {BookmarkDao} from "../daos/BookmarkDao";
+import {BookmarkControllerI} from "../interfaces/bookmark/BookmarkControllerI";
+import {Bookmark} from "../models/Bookmark";
 
 /**
  * @class BookmarkController Implements RESTful Web service API for bookmark resource.
@@ -49,7 +49,7 @@ export class BookmarkController implements BookmarkControllerI {
         BookmarkController.bookmarkDao
             .findAllBookmarkedTuits(req.params.uid)
             .then((bookmarkedTuits: Bookmark[]) => res.json(bookmarkedTuits))
-            .catch((status) => res.json(status))
+            .catch((status) => res.json(status));
     }
 
     public userBookmarksTuit(req: Request, res: Response): void {
@@ -59,14 +59,14 @@ export class BookmarkController implements BookmarkControllerI {
                 BookmarkController.bookmarkDao
                     .userBookmarksTuit(req.params.uid, req.params.tid)
                     .then((bookmark: Bookmark) => res.json(bookmark))
-                    .catch((status) => res.json(status))
-            })
+                    .catch((status) => res.json(status));
+            });
     }
 
     public userUnbookmarksTuit(req: Request, res: Response): void {
         BookmarkController.bookmarkDao
             .userUnbookmarksTuits(req.params.uid, req.params.tid)
             .then((status: object) => res.json(status))
-            .catch((status) => res.json(status))
+            .catch((status) => res.json(status));
     }
 }

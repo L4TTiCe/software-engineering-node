@@ -11,7 +11,7 @@ export class LikeDao implements LikeDaoI {
 
     public static getInstance(): LikeDao {
         if (LikeDao.likeDao === null) {
-            LikeDao.likeDao = new LikeDao()
+            LikeDao.likeDao = new LikeDao();
         }
         return LikeDao.likeDao
     }
@@ -19,21 +19,21 @@ export class LikeDao implements LikeDaoI {
     public async findAllTuitsLikedByUser(uid: string): Promise<Like[]> {
         return LikeModel
             .find({likedBy: uid})
-            .populate("tuit")
+            .populate("tuit");
     }
 
     public async findAllUsersThatLikedTuit(tid: string): Promise<Like[]> {
         return LikeModel
             .find({tuit: tid})
-            .populate("likedBy", {'password': 0})
+            .populate("likedBy", {'password': 0});
     }
 
     public async userLikesTuit(uid: string, tid: string): Promise<Like> {
-        return LikeModel.create({tuit: tid, likedBy: uid})
+        return LikeModel.create({tuit: tid, likedBy: uid});
     }
 
     public async userUnlikesTuit(uid: string, tid: string): Promise<object> {
-        return LikeModel.deleteOne({tuit: tid, likedBy: uid})
+        return LikeModel.deleteOne({tuit: tid, likedBy: uid});
     }
 
 }

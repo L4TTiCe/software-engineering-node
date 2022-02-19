@@ -11,6 +11,6 @@ import {User} from "./user/User"
  * @property {User} userFollowing User following the user
  */
 export interface Follow {
-    userFollowed: User,
-    userFollowing: User
+    userFollowed: User;
+    userFollowing: User;
 }

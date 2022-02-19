@@ -1,10 +1,10 @@
 /**
  * @file Controller RESTful Web service API for follow resource
  */
-import {Express, Request, Response} from "express"
-import {FollowDao} from "../daos/FollowDao"
-import {FollowControllerI} from "../interfaces/follow/FollowControllerI"
-import {Follow} from "../models/Follow"
+import {Express, Request, Response} from "express";
+import {FollowDao} from "../daos/FollowDao";
+import {FollowControllerI} from "../interfaces/follow/FollowControllerI";
+import {Follow} from "../models/Follow";
 
 /**
  * @class FollowController Implements RESTful Web service API for follow resource.
@@ -60,7 +60,7 @@ export class FollowController implements FollowControllerI {
         FollowController.followDao
             .findAllUsersFollowedByUser(req.params.uid)
             .then((follow: Follow[]) => res.json(follow))
-            .catch((status) => res.json(status))
+            .catch((status) => res.json(status));
     }
 
     /**
@@ -75,7 +75,7 @@ export class FollowController implements FollowControllerI {
         FollowController.followDao
             .findAllUsersThatFollowUser(req.params.uid)
             .then((follow: Follow[]) => res.json(follow))
-            .catch((status) => res.json(status))
+            .catch((status) => res.json(status));
     }
 
     /**
@@ -92,8 +92,8 @@ export class FollowController implements FollowControllerI {
                 FollowController.followDao
                     .userFollowsUser(req.params.followed_uid, req.params.following_uid)
                     .then((follow: Follow) => res.json(follow))
-                    .catch((status) => res.json(status))
-        })
+                    .catch((status) => res.json(status));
+        });
     }
 
     /**
@@ -107,6 +107,6 @@ export class FollowController implements FollowControllerI {
         FollowController
             .followDao.userUnfollowsUser(req.params.followed_uid, req.params.following_uid)
             .then((status) => res.send(status))
-            .catch((status) => res.json(status))
+            .catch((status) => res.json(status));
     }
 }

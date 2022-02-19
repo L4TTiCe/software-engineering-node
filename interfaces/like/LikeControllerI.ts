@@ -1,4 +1,4 @@
-import {Request, Response} from "express"
+import {Request, Response} from "express";
 
 export interface LikeControllerI {
     findAllUsersThatLikedTuit(req: Request, res: Response): void;
