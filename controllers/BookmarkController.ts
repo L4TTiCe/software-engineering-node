@@ -45,21 +45,21 @@ export class BookmarkController implements BookmarkControllerI {
         return BookmarkController.bookmarkController;
     }
 
-    public findAllBookmarkedTuits(req: Request, res: Response) {
+    public findAllBookmarkedTuits(req: Request, res: Response): void {
         BookmarkController.bookmarkDao
             .findAllBookmarkedTuits(req.params.uid)
             .then((bookmarkedTuits: Bookmark[]) => res.json(bookmarkedTuits))
             .catch((status) => res.json(status))
     }
 
-    public userBookmarksTuit(req: Request, res: Response) {
+    public userBookmarksTuit(req: Request, res: Response): void {
         BookmarkController.bookmarkDao
             .userBookmarksTuit(req.params.uid, req.params.tid)
             .then((bookmark: Bookmark) => res.json(bookmark))
             .catch((status) => res.json(status))
     }
 
-    public userUnbookmarksTuit(req: Request, res: Response) {
+    public userUnbookmarksTuit(req: Request, res: Response): void {
         BookmarkController.bookmarkDao
             .userUnbookmarksTuits(req.params.uid, req.params.tid)
             .then((status: object) => res.json(status))
