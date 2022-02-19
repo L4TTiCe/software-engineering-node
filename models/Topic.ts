@@ -1,3 +1,3 @@
-export class Topic {
-    public topic: string = ""
+export interface Topic {
+    topic: string
 }

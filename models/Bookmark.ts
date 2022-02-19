@@ -2,7 +2,7 @@
  * @file Declares Bookmark data type representing relationship between
  * user and tuit, as in user bookmarks a Tuit
  */
-import {User} from "./User"
+import {User} from "./user/User"
 import {Tuit} from "./Tuit"
 
 /**

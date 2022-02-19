@@ -1,6 +1,6 @@
-import {User} from "../models/User"
-import {UserModel} from "../mongoose/UserModel"
-import {UserDaoI} from "../interfaces/UserDaoI"
+import {User} from "../models/user/User"
+import {UserModel} from "../mongoose/user/UserModel"
+import {UserDaoI} from "../interfaces/user/UserDaoI"
 
 export class UserDao implements UserDaoI {
     private static userDao: UserDao = new UserDao()

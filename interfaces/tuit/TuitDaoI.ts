@@ -1,6 +1,6 @@
 // The data access object design pattern (DAO) encapsulates data access logic to
 // decouple database access mechanism from the rest of the application.
-import {Tuit} from "../models/Tuit"
+import {Tuit} from "../../models/Tuit"
 
 export interface TuitDaoI {
     findAllTuits(): Promise<Tuit[]>

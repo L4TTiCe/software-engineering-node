@@ -1,7 +1,7 @@
-import {User} from "./User"
+import {User} from "./user/User"
 
-export class Tuit {
-    private tuit: string = "";
-    private postedOn: Date = new Date();
-    private postedBy: User | null = null;
+export interface Tuit {
+    tuit: string;
+    postedOn: Date;
+    postedBy: User | null;
 }

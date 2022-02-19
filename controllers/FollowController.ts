@@ -1,10 +1,10 @@
 /**
  * @file Controller RESTful Web service API for follow resource
  */
-import {Express, Request, Response} from "express";
-import {FollowDao} from "../daos/FollowDao";
-import {FollowControllerI} from "../interfaces/follow/FollowControllerI";
-import {Follow} from "../models/Follow";
+import {Express, Request, Response} from "express"
+import {FollowDao} from "../daos/FollowDao"
+import {FollowControllerI} from "../interfaces/follow/FollowControllerI"
+import {Follow} from "../models/Follow"
 
 /**
  * @class FollowController Implements RESTful Web service API for follow resource.

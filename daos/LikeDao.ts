@@ -1,6 +1,6 @@
-import {LikeDaoI} from "../interfaces/LikeDaoI";
+import {LikeDaoI} from "../interfaces/like/LikeDaoI";
 import {Like} from "../models/Like";
-import {LikeModel} from "../mongoose/LikeModel";
+import {LikeModel} from "../mongoose/like/LikeModel";
 
 export class LikeDao implements LikeDaoI {
     private static likeDao: LikeDao | null = null;

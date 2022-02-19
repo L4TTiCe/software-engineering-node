@@ -1,6 +1,6 @@
 // The data access object design pattern (DAO) encapsulates data access logic to
 // decouple database access mechanism from the rest of the application.
-import {User} from "../models/User"
+import {User} from "../../models/user/User"
 
 export interface UserDaoI {
     findAllUsers(): Promise<User[]>

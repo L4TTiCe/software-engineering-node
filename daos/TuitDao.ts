@@ -1,8 +1,8 @@
 import {Tuit} from "../models/Tuit"
-import {TuitModel} from "../mongoose/TuitModel"
-import {TuitDaoI} from "../interfaces/TuitDaoI"
+import {TuitModel} from "../mongoose/tuit/TuitModel"
+import {TuitDaoI} from "../interfaces/tuit/TuitDaoI"
 import {UserDao} from "./UserDao"
-import {User} from "../models/User"
+import {User} from "../models/user/User"
 
 export class TuitDao implements TuitDaoI {
     private static tuitDao: TuitDao = new TuitDao()

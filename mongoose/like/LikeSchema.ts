@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import {Like} from "../models/Like"
+import {Like} from "../../models/Like"
 
 export const LikeSchema = new mongoose.Schema<Like>({
     tuit: {type: mongoose.Schema.Types.ObjectId, ref: "TuitModel"},

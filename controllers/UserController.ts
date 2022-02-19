@@ -1,8 +1,8 @@
 import {Express, Request, Response} from "express"
 import bodyParser from "body-parser"
 import {UserDao} from "../daos/UserDao"
-import {UserControllerI} from "../interfaces/UserControllerI"
-import {User} from "../models/User";
+import {UserControllerI} from "../interfaces/user/UserControllerI"
+import {User} from "../models/user/User";
 
 
 export class UserController implements UserControllerI {

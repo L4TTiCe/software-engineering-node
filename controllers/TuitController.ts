@@ -1,7 +1,7 @@
 import {Express, Request, Response} from "express"
 import bodyParser from "body-parser"
 import {TuitDao} from "../daos/TuitDao"
-import {TuitControllerI} from "../interfaces/TuitControllerI"
+import {TuitControllerI} from "../interfaces/tuit/TuitControllerI"
 import {Tuit} from "../models/Tuit";
 
 export class TuitController implements TuitControllerI {

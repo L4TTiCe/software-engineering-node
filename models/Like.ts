@@ -3,7 +3,7 @@
  * users and tuits, as in user likes a tuit
  */
 import {Tuit} from "./Tuit"
-import {User} from "./User"
+import {User} from "./user/User"
 
 /**
  * @typedef Like Represents likes relationship between a user and a tuit,
