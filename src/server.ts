@@ -12,7 +12,7 @@ import {BookmarkController} from "./controllers/BookmarkController";
 /**
  * Connects to the Mongo Database with db connection details from Environment Variables
  */
-function connectDatabase(): void {
+let connectDatabase = (): void => {
     // Connecting to DB
     let dbUri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
         + ":" + process.env.MONGODB_PASSWORD + "@" + process.env.MONGODB_HOST;
@@ -35,9 +35,9 @@ function connectDatabase(): void {
  * Initializes the Express app and connects the Controllers to the App
  * @return {Express} the Initialized express app
  */
-function initializeApp(): express.Express {
+let initializeApp = (): express.Express => {
     connectDatabase()
-    let app = express();
+    const app = express();
 
     UserController.getInstance(app);
     TuitController.getInstance(app);
@@ -51,7 +51,7 @@ function initializeApp(): express.Express {
 /**
  * Starts the Server and listens on the specified PORT
  */
-function startServer(port: string | number):void {
+let startServer = (port: string | number): void => {
     const app = initializeApp()
 
     app.get("/hello", (req: Request, res: Response) =>

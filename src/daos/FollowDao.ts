@@ -31,13 +31,13 @@ export class FollowDao implements FollowDaoI {
     public async findAllUsersFollowedByUser(uid: string): Promise<Follow[]> {
         return FollowModel
             .find({userFollowing: uid})
-            .populate("userFollowed", {'password': 0});
+            .populate("userFollowed", {password: 0});
     }
 
     public async findAllUsersThatFollowUser(uid: string): Promise<Follow[]> {
         return FollowModel
             .find({userFollowed: uid})
-            .populate("userFollowing", {'password': 0});
+            .populate("userFollowing", {password: 0});
     }
 
     public async userFollowsUser(followedUid: string, followingUid: string): Promise<Follow> {
