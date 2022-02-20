@@ -7,6 +7,9 @@
 Dockerfile
 docker-compose.yml
 
+# Documentation
+docs
+
 # NPM dependencies
 node_modules
 
