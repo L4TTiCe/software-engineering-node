@@ -8,6 +8,7 @@ import {TuitController} from "./controllers/TuitController"
 import {LikeController} from "./controllers/LikeController";
 import {FollowController} from "./controllers/FollowController";
 import {BookmarkController} from "./controllers/BookmarkController";
+import {MessageController} from "./controllers/MessageController";
 
 /**
  * Connects to the Mongo Database with db connection details from Environment Variables
@@ -44,6 +45,7 @@ let initializeApp = (): express.Express => {
     LikeController.getInstance(app);
     FollowController.getInstance(app);
     BookmarkController.getInstance(app);
+    MessageController.getInstance(app);
 
     return app
 }
