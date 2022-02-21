@@ -40,13 +40,13 @@ export class TuitDao implements TuitDaoI {
     public async findAllTuits(): Promise<Tuit[]> {
         return TuitModel
             .find()
-            .populate("postedBy", {'password': 0});
+            .populate("postedBy", {password: 0});
     }
 
     public async findTuitById(tid: string): Promise<Tuit> {
         return TuitModel
             .findById(tid)
-            .populate("postedBy", {'password': 0});
+            .populate("postedBy", {password: 0});
     }
 
     public async findTuitsByUser(uid: string): Promise<Tuit[]> {

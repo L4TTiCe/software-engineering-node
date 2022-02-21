@@ -80,8 +80,7 @@ export class LikeController implements LikeControllerI {
                 LikeController.likeDao.userLikesTuit(req.params.uid, req.params.tid)
                     .then((likes) => res.json(likes))
                     .catch((status) => res.json(status));
-            }
-        );
+        });
     }
 
     /**

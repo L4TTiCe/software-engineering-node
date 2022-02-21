@@ -27,12 +27,12 @@ export class UserDao implements UserDaoI {
 
     public async findAllUsers(): Promise<User[]> {
         return UserModel
-            .find().select({'password': 0});
+            .find().select({password: 0});
     }
 
     public async findUserById(uid: string): Promise<User> {
         return UserModel
-            .findById(uid).select({'password': 0});
+            .findById(uid).select({password: 0});
     }
 
     public async createUser(user: User): Promise<User> {
