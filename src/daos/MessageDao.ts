@@ -29,7 +29,7 @@ export class MessageDao implements MessageDaoI {
         return MessageDao.messageDao
     }
 
-    public async sendMessage(message: Message, uid:string): Promise<Message> {
+    public async sendMessage(message: Message, uid: string): Promise<Message> {
         message.from = await UserDao.getInstance()
             .findUserById(uid);
         return MessageModel
@@ -48,7 +48,7 @@ export class MessageDao implements MessageDaoI {
             .populate("to", {password: 0})
     }
 
-    public async deleteMessage(mid: String): Promise<object> {
+    public async deleteMessage(mid: string): Promise<object> {
         return MessageModel.deleteOne({_id: mid})
     }
 }

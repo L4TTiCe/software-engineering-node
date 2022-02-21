@@ -9,7 +9,7 @@ export interface MessageDaoI {
      * @param message - the message to be sent
      * @param uid - the UID of the sender
      */
-    sendMessage(message: Message, uid:string): Promise<Message>;
+    sendMessage(message: Message, uid: string): Promise<Message>;
 
     /**
      * Retrieves all sent messages of a {@link User}
@@ -27,5 +27,5 @@ export interface MessageDaoI {
      * Deletes the message with the specified MID from both the {@link User}s
      * @param mid - the ID of the Message (MID) to be deleted
      */
-    deleteMessage(mid: String): Promise<object>;
+    deleteMessage(mid: string): Promise<object>;
 }
