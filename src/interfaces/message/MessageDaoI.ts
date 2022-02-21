@@ -3,6 +3,9 @@
  */
 import {Message} from "../../models/Message";
 
+/**
+ * Defines the CRUD functions {@link MessageDao} is to support.
+ */
 export interface MessageDaoI {
     /**
      * Creates a message from a {@link User} to another User with the passed in data.

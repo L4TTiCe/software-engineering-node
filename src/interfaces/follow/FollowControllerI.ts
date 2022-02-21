@@ -4,6 +4,9 @@
  */
 import {Request, Response} from "express";
 
+/**
+ * Defines the use cases the {@link FollowController} is to support.
+ */
 export interface FollowControllerI {
     /**
      * Sends all the {@link User}s who follow a User

@@ -3,6 +3,9 @@
  */
 import {Bookmark} from "../../models/Bookmark";
 
+/**
+ * Defines the CRUD functions {@link BookmarkDao} is to support.
+ */
 export interface BookmarkDaoI {
     /**
      * Returns all the {@link Tuit}s bookmarked by a {@link User} as a Promise

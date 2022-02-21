@@ -4,6 +4,9 @@
  */
 import {Request, Response} from "express";
 
+/**
+ * Defines the use cases the {@link LikeController} is to support.
+ */
 export interface LikeControllerI {
     /**
      * Sends all the {@link User}s that liked a {@link Tuit}s as a JSON Response.

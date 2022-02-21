@@ -4,6 +4,9 @@
  */
 import {Request, Response} from "express";
 
+/**
+ * Defines the use cases the {@link TuitController} is to support.
+ */
 export interface TuitControllerI {
     /**
      * Creates a {@link Tuit}

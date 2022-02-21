@@ -3,6 +3,9 @@
  */
 import {Follow} from "../../models/Follow";
 
+/**
+ * Defines the CRUD functions {@link FollowDao} is to support.
+ */
 export interface FollowDaoI {
     /**
      * Returns all the {@link User}s Followers

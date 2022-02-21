@@ -3,6 +3,9 @@
  */
 import {Request, Response} from "express";
 
+/**
+ * Defines the use cases the {@link BookmarkController} is to support.
+ */
 export interface BookmarkControllerI {
     /**
      * Sends all the {@link Tuit}s bookmarked by a {@link User} as a JSON

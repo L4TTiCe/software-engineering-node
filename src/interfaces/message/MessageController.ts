@@ -4,6 +4,9 @@
  */
 import {Request, Response} from "express";
 
+/**
+ * Defines the use cases the {@link MessageController} is to support.
+ */
 export interface MessageControllerI {
     /**
      * Records the {@link Message} sent by the {@link User}, and sends the record written to the

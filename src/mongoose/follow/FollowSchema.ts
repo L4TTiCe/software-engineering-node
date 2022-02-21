@@ -7,7 +7,7 @@ import {Follow} from "../../models/Follow"
 /**
  * Represents the follow relationship between a user and another user,
  * as in a {@link User} follows a user. The FollowSchema represents how a
- * Tuit is represented in the database.
+ * Follow is represented in the database.
  * @typedef {FollowSchema} FollowSchema
  * @property {User} userFollowed - User being followed
  * @property {User} userFollowing - User following the user

@@ -52,6 +52,7 @@ const initializeApp = (): express.Express => {
 
 /**
  * Starts the Server and listens on the specified PORT
+ * @param port {string | number} - the port the server will listen on
  */
 const startServer = (port: string | number): void => {
     const app = initializeApp()
@@ -62,5 +63,13 @@ const startServer = (port: string | number): void => {
     app.listen(port);
 }
 
+/**
+ * Defines the Port number to be used by the server
+ */
 const PORT: number = 4000
+
+/**
+ * Instructs the server to check for the 'PORT' environment variable, and to use
+ * that if available. (Used by Heroku and Docker instances)
+ */
 startServer(process.env.PORT || PORT)
