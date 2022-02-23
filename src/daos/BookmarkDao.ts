@@ -44,4 +44,9 @@ export class BookmarkDao implements BookmarkDaoI {
             .deleteOne({bookmarkedBy: uid, bookmarkedTuit: tid});
     }
 
+    public async userDeletesAllBookmarks(uid: string): Promise<object> {
+        return BookmarkModel
+            .deleteMany({bookmarkedBy: uid})
+    }
+
 }

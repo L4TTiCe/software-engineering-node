@@ -13,7 +13,7 @@ import {MessageController} from "./controllers/MessageController";
 /**
  * Connects to the Mongo Database with db connection details from Environment Variables
  */
-let connectDatabase = (): void => {
+const connectDatabase = (): void => {
     // Connecting to DB
     let dbUri: string = process.env.MONGODB_PREFIX + "://" + process.env.MONGODB_USER
         + ":" + process.env.MONGODB_PASSWORD + "@" + process.env.MONGODB_HOST;
@@ -36,7 +36,7 @@ let connectDatabase = (): void => {
  * Initializes the Express app and connects the Controllers to the App
  * @return {Express} the Initialized express app
  */
-let initializeApp = (): express.Express => {
+const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
 
@@ -52,8 +52,9 @@ let initializeApp = (): express.Express => {
 
 /**
  * Starts the Server and listens on the specified PORT
+ * @param port {string | number} - the port the server will listen on
  */
-let startServer = (port: string | number): void => {
+const startServer = (port: string | number): void => {
     const app = initializeApp()
 
     app.get("/hello", (req: Request, res: Response) =>
@@ -62,5 +63,13 @@ let startServer = (port: string | number): void => {
     app.listen(port);
 }
 
+/**
+ * Defines the Port number to be used by the server
+ */
 const PORT: number = 4000
+
+/**
+ * Instructs the server to check for the 'PORT' environment variable, and to use
+ * that if available. (Used by Heroku and Docker instances)
+ */
 startServer(process.env.PORT || PORT)

@@ -3,6 +3,9 @@
  */
 import {Bookmark} from "../../models/Bookmark";
 
+/**
+ * Defines the CRUD functions {@link BookmarkDao} is to support.
+ */
 export interface BookmarkDaoI {
     /**
      * Returns all the {@link Tuit}s bookmarked by a {@link User} as a Promise
@@ -27,4 +30,11 @@ export interface BookmarkDaoI {
      * @return {Promise<object>} the status of the delete operation
      */
     userUnbookmarksTuits(uid: string, tid: string): Promise<object>;
+
+    /**
+     * Deletes all {@link Bookmark}s made by {@link User}
+     * @param uid {string} - the UID of the User who's bookmarked Tuits are to be deleted
+     * @return {Promise<object>} the status of the delete operation
+     */
+    userDeletesAllBookmarks(uid: string): Promise<object>;
 }

@@ -6,6 +6,9 @@
 // decouple database access mechanism from the rest of the application.
 import {Tuit} from "../../models/Tuit";
 
+/**
+ * Defines the CRUD functions {@link TuitDao} is to support.
+ */
 export interface TuitDaoI {
     /**
      * Creates a {@link Tuit} with the given data

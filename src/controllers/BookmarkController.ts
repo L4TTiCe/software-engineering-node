@@ -44,6 +44,8 @@ export class BookmarkController implements BookmarkControllerI {
                 BookmarkController.bookmarkController.userBookmarksTuit);
             app.delete("/users/:uid/bookmarks/:tid",
                 BookmarkController.bookmarkController.userUnbookmarksTuit);
+            app.delete("/users/:uid/bookmarks",
+                BookmarkController.bookmarkController.userDeletesAllBookmarks);
         }
         return BookmarkController.bookmarkController;
     }
@@ -69,6 +71,13 @@ export class BookmarkController implements BookmarkControllerI {
     public userUnbookmarksTuit(req: Request, res: Response): void {
         BookmarkController.bookmarkDao
             .userUnbookmarksTuits(req.params.uid, req.params.tid)
+            .then((status: object) => res.json(status))
+            .catch((status) => res.json(status));
+    }
+
+    public userDeletesAllBookmarks(req: Request, res: Response): void {
+        BookmarkController.bookmarkDao
+            .userDeletesAllBookmarks(req.params.uid)
             .then((status: object) => res.json(status))
             .catch((status) => res.json(status));
     }

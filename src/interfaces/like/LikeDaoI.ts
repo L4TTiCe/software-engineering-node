@@ -3,6 +3,9 @@
  */
 import {Like} from "../../models/Like";
 
+/**
+ * Defines the CRUD functions {@link Like} is to support.
+ */
 export interface LikeDaoI {
     /**
      * Returns the {@link User}s that liked a {@link Tuit}

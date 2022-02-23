@@ -6,7 +6,7 @@ import {Bookmark} from "../../models/Bookmark"
 
 /**
  * A Bookmark represents a {@link User} choosing to sava a {@link Tuit} for later reference. The
- * BookmarkSchema represents how a Tuit is represented in the database.
+ * BookmarkSchema represents how a Bookmark is represented in the database.
  * @typedef {BookmarkSchema} BookmarkSchema
  * @property {Tuit} bookmarkedTuit - Tuit being bookmarked
  * @property {User} bookmarkedBy - User bookmarking the Tuit

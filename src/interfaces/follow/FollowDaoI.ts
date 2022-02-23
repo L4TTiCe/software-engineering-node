@@ -3,6 +3,9 @@
  */
 import {Follow} from "../../models/Follow";
 
+/**
+ * Defines the CRUD functions {@link FollowDao} is to support.
+ */
 export interface FollowDaoI {
     /**
      * Returns all the {@link User}s Followers
@@ -33,4 +36,11 @@ export interface FollowDaoI {
      * @return {Promise<object>} the status of the delete operation
      */
     userUnfollowsUser(followerUid: string, followingUid: string): Promise<object>;
+
+    /**
+     * Removes the records of a {@link User} following any other users
+     * @param followerUid {string} - The UID of the user who is unfollowing the Users
+     * @return {Promise<object>} the status of the delete operation
+     */
+    userUnfollowsAllUsers(followerUid: string): Promise<object>;
 }
