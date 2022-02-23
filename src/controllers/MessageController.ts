@@ -35,8 +35,14 @@ export class MessageController implements MessageControllerI {
                 "/users/:uid/messages/sent",
                 MessageController.messageController.userFetchesAllSentMessages);
             app.delete(
-                "/users/:uid/messages/:mid",
-                MessageController.messageController.userDeletesMessage);
+                "/users/:uid/messages/byId/:mid",
+                MessageController.messageController.userDeletesMessageById);
+            app.delete(
+                "/users/:rid/messages/:sid",
+                MessageController.messageController.userDeletesMessagesFromUser);
+            app.delete(
+                "/users/:uid/messages",
+                MessageController.messageController.userDeletesAllMessages);
         }
         return MessageController.messageController;
     }
@@ -59,8 +65,20 @@ export class MessageController implements MessageControllerI {
             .catch((status) => res.json(status));
     }
 
-    public userDeletesMessage(req: Request, res: Response): void {
-        MessageController.messageDao.deleteMessage(req.params.mid)
+    public userDeletesMessageById(req: Request, res: Response): void {
+        MessageController.messageDao.deleteMessageById(req.params.mid)
+            .then((status: object) => res.send(status))
+            .catch((status) => res.json(status));
+    }
+
+    public userDeletesMessagesFromUser(req: Request, res: Response) {
+        MessageController.messageDao.deleteMessagesFromUser(req.params.sid, req.params.rid)
+            .then((status: object) => res.send(status))
+            .catch((status) => res.json(status));
+    }
+
+    public userDeletesAllMessages(req: Request, res: Response) {
+        MessageController.messageDao.deleteAllMessages(req.params.uid)
             .then((status: object) => res.send(status))
             .catch((status) => res.json(status));
     }

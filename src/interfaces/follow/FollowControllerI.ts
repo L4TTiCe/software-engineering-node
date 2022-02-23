@@ -35,4 +35,11 @@ export interface FollowControllerI {
      * @param res {Response} - response containing the status of the operations
      */
     userUnfollowsUser(req: Request, res: Response): void;
+
+    /**
+     * Removes the records of a {@link User} following any another Users
+     * @param req {Request} - request containing the User's uid
+     * @param res {Response} - response containing the status of the operations
+     */
+    userUnfollowsAllUsers(req: Request, res: Response): void;
 }

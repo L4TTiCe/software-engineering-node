@@ -50,4 +50,8 @@ export class FollowDao implements FollowDaoI {
             .deleteOne({userFollowed: followedUid, userFollowing: followingUid});
     }
 
+    public async userUnfollowsAllUsers(followingUid: string): Promise<object> {
+        return FollowModel
+            .deleteMany({userFollowing: followingUid});
+    }
 }

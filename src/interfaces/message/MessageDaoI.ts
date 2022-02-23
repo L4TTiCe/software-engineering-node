@@ -30,5 +30,19 @@ export interface MessageDaoI {
      * Deletes the message with the specified MID from both the {@link User}s
      * @param mid - the ID of the Message (MID) to be deleted
      */
-    deleteMessage(mid: string): Promise<object>;
+    deleteMessageById(mid: string): Promise<object>;
+
+    /**
+     * Deletes all messages sent by a {@link User} to the User
+     * @param sid - the UID of the sender
+     * @param rid - the UID of the receiver
+     */
+    deleteMessagesFromUser(sid: string, rid: string): Promise<object>;
+
+    /**
+     * Deletes all messages sent and received by a {@link User}
+     * @param uid - the UID of the User who's messages are to be deleted
+     */
+    deleteAllMessages(uid: string): Promise<object>;
+
 }

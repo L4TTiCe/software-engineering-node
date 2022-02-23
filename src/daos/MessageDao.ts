@@ -48,7 +48,17 @@ export class MessageDao implements MessageDaoI {
             .populate("to", {password: 0})
     }
 
-    public async deleteMessage(mid: string): Promise<object> {
+    public async deleteMessageById(mid: string): Promise<object> {
         return MessageModel.deleteOne({_id: mid})
+    }
+
+    public async deleteMessagesFromUser(sid: string, rid: string): Promise<object> {
+        return MessageModel.deleteMany({from: sid, to: rid})
+    }
+
+    public async deleteAllMessages(uid: string): Promise<object> {
+        const operation1 = MessageModel.deleteMany({from: uid})
+        const operation2 = MessageModel.deleteMany({to: uid})
+        return Promise.all([operation1, operation2])
     }
 }
