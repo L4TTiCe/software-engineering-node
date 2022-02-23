@@ -440,36 +440,6 @@
 							"response": []
 						},
 						{
-							"name": "User Unfollows User",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{HEROKU_URL}}/users/:following_uid/follows/:followed_uid",
-									"host": [
-										"{{HEROKU_URL}}"
-									],
-									"path": [
-										"users",
-										":following_uid",
-										"follows",
-										":followed_uid"
-									],
-									"variable": [
-										{
-											"key": "following_uid",
-											"value": "{{NASA_UID}}"
-										},
-										{
-											"key": "followed_uid",
-											"value": "{{SPACEX_UID}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "GET All users Followed by a User",
 							"request": {
 								"method": "GET",
@@ -513,6 +483,62 @@
 										{
 											"key": "uid",
 											"value": "{{SPACEX_UID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Unfollows User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HEROKU_URL}}/users/:following_uid/follows/:followed_uid",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"users",
+										":following_uid",
+										"follows",
+										":followed_uid"
+									],
+									"variable": [
+										{
+											"key": "following_uid",
+											"value": "{{NASA_UID}}"
+										},
+										{
+											"key": "followed_uid",
+											"value": "{{SPACEX_UID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Unfollows All Users",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:following_uid/follows",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":following_uid",
+										"follows"
+									],
+									"variable": [
+										{
+											"key": "following_uid",
+											"value": "{{NASA_UID}}"
 										}
 									]
 								}
@@ -608,6 +634,32 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "DELETE All User Bookmarks",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:uid/bookmarks",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":uid",
+										"bookmarks"
+									],
+									"variable": [
+										{
+											"key": "uid",
+											"value": "{{NASA_UID}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -667,7 +719,7 @@
 									"variable": [
 										{
 											"key": "uid",
-											"value": "61fa03391bbe71ae419a7b35"
+											"value": "{{NASA_UID}}"
 										}
 									]
 								}
@@ -693,7 +745,7 @@
 									"variable": [
 										{
 											"key": "uid",
-											"value": "61fa03011bbe71ae419a7b33"
+											"value": "{{SPACEX_UID}}"
 										}
 									]
 								}
@@ -706,7 +758,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{HEROKU_URL}}/users/:uid/messages/:mid",
+									"raw": "{{HEROKU_URL}}/users/:uid/messages/byId/:mid",
 									"host": [
 										"{{HEROKU_URL}}"
 									],
@@ -714,16 +766,72 @@
 										"users",
 										":uid",
 										"messages",
+										"byId",
 										":mid"
 									],
 									"variable": [
 										{
 											"key": "uid",
-											"value": "61fa03011bbe71ae419a7b33"
+											"value": "{{SPACEX_UID}}"
 										},
 										{
 											"key": "mid",
-											"value": "6213d2c1a4c91e91a2099c26"
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Message from User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HEROKU_URL}}/users/:rid/messages/:sid",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"users",
+										":rid",
+										"messages",
+										":sid"
+									],
+									"variable": [
+										{
+											"key": "rid",
+											"value": "{{SPACEX_UID}}"
+										},
+										{
+											"key": "sid",
+											"value": "{{NASA_UID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE All Messages",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HEROKU_URL}}/users/:uid/messages",
+									"host": [
+										"{{HEROKU_URL}}"
+									],
+									"path": [
+										"users",
+										":uid",
+										"messages"
+									],
+									"variable": [
+										{
+											"key": "uid",
+											"value": "{{NASA_UID}}"
 										}
 									]
 								}
@@ -1205,37 +1313,6 @@
 							"response": []
 						},
 						{
-							"name": "User Unfollows User",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "localhost:4000/users/:following_uid/follows/:followed_uid",
-									"host": [
-										"localhost"
-									],
-									"port": "4000",
-									"path": [
-										"users",
-										":following_uid",
-										"follows",
-										":followed_uid"
-									],
-									"variable": [
-										{
-											"key": "following_uid",
-											"value": "620be5208ed648763c86e8ea"
-										},
-										{
-											"key": "followed_uid",
-											"value": "61f8008b625bc541dc9c65e9"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "GET All users Followed by a User",
 							"request": {
 								"method": "GET",
@@ -1281,6 +1358,63 @@
 										{
 											"key": "uid",
 											"value": "61f8008b625bc541dc9c65e9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Unfollows User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:following_uid/follows/:followed_uid",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":following_uid",
+										"follows",
+										":followed_uid"
+									],
+									"variable": [
+										{
+											"key": "following_uid",
+											"value": "620be5208ed648763c86e8ea"
+										},
+										{
+											"key": "followed_uid",
+											"value": "61f8008b625bc541dc9c65e9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Unfollows All Users",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:following_uid/follows",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":following_uid",
+										"follows"
+									],
+									"variable": [
+										{
+											"key": "following_uid",
+											"value": "620be5208ed648763c86e8ea"
 										}
 									]
 								}
@@ -1374,6 +1508,32 @@
 										{
 											"key": "tid",
 											"value": "620be5588ed648763c86e8ed"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE All User Bookmarks",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:uid/bookmarks",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":uid",
+										"bookmarks"
+									],
+									"variable": [
+										{
+											"key": "uid",
+											"value": "620be5208ed648763c86e8ea"
 										}
 									]
 								}
@@ -1480,7 +1640,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "localhost:4000/users/:uid/messages/:mid",
+									"raw": "localhost:4000/users/:uid/messages/byId/:mid",
 									"host": [
 										"localhost"
 									],
@@ -1489,16 +1649,74 @@
 										"users",
 										":uid",
 										"messages",
+										"byId",
 										":mid"
 									],
 									"variable": [
 										{
 											"key": "uid",
-											"value": "61f8008b625bc541dc9c65e9"
+											"value": "620be5208ed648763c86e8ea"
 										},
 										{
 											"key": "mid",
-											"value": "621307b4bc65f09b5883aaf7"
+											"value": "6216840970cfc5f15e6db890"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Message from User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:rid/messages/:sid",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":rid",
+										"messages",
+										":sid"
+									],
+									"variable": [
+										{
+											"key": "rid",
+											"value": "61f8008b625bc541dc9c65e9"
+										},
+										{
+											"key": "sid",
+											"value": "620be5208ed648763c86e8ea"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE All Messages",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:4000/users/:uid/messages",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"users",
+										":uid",
+										"messages"
+									],
+									"variable": [
+										{
+											"key": "uid",
+											"value": "620be5208ed648763c86e8ea"
 										}
 									]
 								}
