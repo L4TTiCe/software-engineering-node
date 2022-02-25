@@ -9,6 +9,7 @@ import {LikeController} from "./controllers/LikeController";
 import {FollowController} from "./controllers/FollowController";
 import {BookmarkController} from "./controllers/BookmarkController";
 import {MessageController} from "./controllers/MessageController";
+import cors from 'cors';
 
 /**
  * Connects to the Mongo Database with db connection details from Environment Variables
@@ -39,6 +40,7 @@ const connectDatabase = (): void => {
 const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
+    app.use(cors())
 
     UserController.getInstance(app);
     TuitController.getInstance(app);
