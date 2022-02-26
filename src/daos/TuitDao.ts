@@ -54,7 +54,8 @@ export class TuitDao implements TuitDaoI {
             .findUserById(uid);
 
         return TuitModel
-            .find({postedBy: user});
+            .find({postedBy: user})
+            .populate("postedBy", {password: 0});
     }
 
     public async updateTuit(tid: string, tuit: Tuit): Promise<object> {
