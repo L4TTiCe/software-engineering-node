@@ -49,6 +49,8 @@ export class LikeController implements LikeControllerI {
      * body formatted as JSON arrays containing the tuit objects that were liked
      */
     public findAllTuitsLikedByUser(req: Request, res: Response): void {
+        console.info(`like: findAllTuitsLikedByUser(${req.params.uid})`)
+
         LikeController.likeDao.findAllTuitsLikedByUser(req.params.uid)
             .then((likes) => res.json(likes))
             .catch((status) => res.json(status));
@@ -62,6 +64,8 @@ export class LikeController implements LikeControllerI {
      * body formatted as JSON arrays containing the user objects
      */
     public findAllUsersThatLikedTuit(req: Request, res: Response): void {
+        console.info(`like: findAllUsersThatLikedTuit(${req.params.tid})`)
+
         LikeController.likeDao.findAllUsersThatLikedTuit(req.params.tid)
             .then((likes) => res.json(likes))
             .catch((status) => res.json(status));
@@ -76,6 +80,8 @@ export class LikeController implements LikeControllerI {
      * database
      */
     public userLikesTuit(req: Request, res: Response): void {
+        console.info(`like: userLikesTuit(${req.params.uid}, ${req.params.tid})`)
+
         LikeController.likeDao.userUnlikesTuit(req.params.uid, req.params.tid).then(() => {
                 LikeController.likeDao.userLikesTuit(req.params.uid, req.params.tid)
                     .then((likes) => res.json(likes))
@@ -91,6 +97,8 @@ export class LikeController implements LikeControllerI {
      * on whether deleting the like was successful or not
      */
     public userUnlikesTuit(req: Request, res: Response): void {
+        console.info(`like: userUnlikesTuit(${req.params.uid}, ${req.params.tid})`)
+
         LikeController.likeDao.userUnlikesTuit(req.params.uid, req.params.tid)
             .then((status) => res.send(status))
             .catch((status) => res.json(status));
