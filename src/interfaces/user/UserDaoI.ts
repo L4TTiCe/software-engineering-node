@@ -28,6 +28,14 @@ export interface UserDaoI {
     findUserById(uid: string): Promise<User>;
 
     /**
+     * Returns the {@link User} with the given UID and password
+     * @param uid {string} - the UID of the User to be returned
+     * @param password {string} - the password of the User to be returned
+     * @return {Promise<User>} - promise containing the User with the given UID and password
+     */
+    findUserByCredentials(uid: string, password: string): Promise<User>;
+
+    /**
      * Returns the {@link User} with the given Username
      * @param username {string} - the Username of the User to be returned
      * @return {Promise<User>} - promise containing the User with the given UID

@@ -50,6 +50,7 @@ export class UserController implements UserControllerI {
             app.use(bodyParser.json());
 
             app.post("/users", UserController.userController.createUser);
+            app.post("/login", UserController.userController.findUserByCredentials);
             app.get("/users", UserController.userController.findAllUsers);
             app.get("/users/byId/:uid", UserController.userController.findUserById);
             app.get("/users/:uname", UserController.userController.findUserByUsername);
@@ -90,6 +91,14 @@ export class UserController implements UserControllerI {
         console.info(`user: findUserByUsername(${req.params.uname})`)
 
         UserController.userDao.findUserByUsername(req.params.uname)
+            .then((user: User) => res.json(user))
+            .catch((status) => res.json(status));
+    }
+
+    public findUserByCredentials(req: Request, res: Response): void {
+        console.info(`user: findUserByCredentials(${req.body.username}, ${req.body.password})`)
+
+        UserController.userDao.findUserByCredentials(req.body.username, req.body.password)
             .then((user: User) => res.json(user))
             .catch((status) => res.json(status));
     }

@@ -25,6 +25,11 @@ export class UserDao implements UserDaoI {
         return this.userDao;
     }
 
+    public async createUser(user: User): Promise<User> {
+        return UserModel
+            .create(user);
+    }
+
     public async findAllUsers(): Promise<User[]> {
         return UserModel
             .find().select({password: 0});
@@ -40,9 +45,8 @@ export class UserDao implements UserDaoI {
             .findOne({username: uname}).select({password: 0});
     }
 
-    public async createUser(user: User): Promise<User> {
-        return UserModel
-            .create(user);
+    public async findUserByCredentials(username: string, password: string): Promise<User> {
+        return UserModel.findOne({username: username, password: password});
     }
 
     public async updateUserById(uid: string, user: User): Promise<object> {

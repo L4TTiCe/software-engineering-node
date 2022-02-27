@@ -27,11 +27,18 @@ export interface UserControllerI {
     findUserById(req: Request, res: Response): void;
 
     /**
-     * Sends the {@link User} with the requested username as a JSON
+     * Sends the {@link User} with the given username as a JSON
      * @param req {Request} - Request containing the username of the User
      * @param res {Response} - Response containing the User
      */
     findUserByUsername(req: Request, res: Response): void;
+
+    /**
+     * Sends the {@link User} with the given username and password as a JSON
+     * @param req {Request} - Request containing the username and password of the User
+     * @param res {Response} - Response containing the User
+     */
+    findUserByCredentials(req: Request, res: Response): void;
 
     /**
      * Updates a {@link User} with their UID
