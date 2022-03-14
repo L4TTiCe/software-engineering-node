@@ -4,4 +4,6 @@
 
 ## Deployed Services
 - Heroku App: [fse-node.herokuapp.com](fse-node.herokuapp.com)
+    - Development :[fse-node-dev.herokuapp.com](https://fse-node-dev.herokuapp.com/) [![Deployment](https://github.com/L4TTiCe/software-engineering-node/actions/workflows/dev_deploy.yml/badge.svg)](https://fse-node-dev.herokuapp.com/)
+
 - [Documentation](https://l4ttice.github.io/software-engineering-node/): [l4ttice.github.io/software-engineering-node/](https://l4ttice.github.io/software-engineering-node/)
