@@ -3,6 +3,7 @@
  */
 import express, {Request, Response} from "express"
 import mongoose from "mongoose"
+import session from 'express-session';
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 import {LikeController} from "./controllers/LikeController";
@@ -41,6 +42,20 @@ const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
     app.use(cors())
+
+    let sess = {
+        secret: process.env.SECRET || 'secret',
+        cookie: {
+            secure: false
+        }
+    }
+
+    if (process.env.ENV === 'PRODUCTION') {
+        app.set('trust proxy', 1) // trust first proxy
+        sess.cookie.secure = true // serve secure cookies
+    }
+
+    app.use(session(sess))
 
     UserController.getInstance(app);
     TuitController.getInstance(app);
