@@ -18,6 +18,14 @@ export interface TuitDaoI {
     createTuit(tuit: Tuit): Promise<Tuit>;
 
     /**
+     * Creates a {@link Tuit} with the given data
+     * @param tuit {Tuit} - the data to be used to create the Tuit
+     * @param uid - the UID of the user posting the Tuit
+     * @return {Promise<Tuit>} - promise containing the Tuit created with the given data
+     */
+    createTuitByUser(tuit: Tuit, uid:string): Promise<Tuit>;
+
+    /**
      * Returns all the {@link Tuit}s
      * @return {Promise<Tuit[]>} - Promise containing all the Tuits
      */

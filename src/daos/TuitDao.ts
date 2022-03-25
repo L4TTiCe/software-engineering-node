@@ -32,6 +32,13 @@ export class TuitDao implements TuitDaoI {
             .create(tuit);
     }
 
+    public async createTuitByUser(tuit: Tuit, uid: string): Promise<Tuit> {
+        tuit.postedBy = await UserDao.getInstance()
+            .findUserById(uid);
+        return TuitModel
+            .create(tuit);
+    }
+
     public async deleteTuit(tid: string): Promise<object> {
         return TuitModel
             .deleteOne({_id: tid});
