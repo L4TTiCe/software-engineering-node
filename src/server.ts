@@ -10,6 +10,7 @@ import {LikeController} from "./controllers/LikeController";
 import {FollowController} from "./controllers/FollowController";
 import {BookmarkController} from "./controllers/BookmarkController";
 import {MessageController} from "./controllers/MessageController";
+import {AuthenticationController} from "./controllers/AuthenticationController";
 import cors from 'cors';
 
 /**
@@ -63,6 +64,7 @@ const initializeApp = (): express.Express => {
     FollowController.getInstance(app);
     BookmarkController.getInstance(app);
     MessageController.getInstance(app);
+    AuthenticationController.getInstance(app);
 
     return app
 }
