@@ -42,7 +42,10 @@ const connectDatabase = (): void => {
 const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
-    app.use(cors())
+    app.use(cors({
+        credentials: true,
+        origin: process.env.NODE_ORIGIN_URLS
+    }))
 
     let sess = {
         secret: process.env.SECRET || 'secret',
