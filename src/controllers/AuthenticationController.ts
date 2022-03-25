@@ -29,6 +29,9 @@ export class AuthenticationController implements AuthenticationControllerI {
             app.use(bodyParser.json());
 
             app.post("/auth/register", AuthenticationController.authController.signup);
+            app.post("/auth/profile", AuthenticationController.authController.profile);
+            app.post("/auth/login", AuthenticationController.authController.login);
+            app.post("/auth/logout", AuthenticationController.authController.logout);
         }
         return AuthenticationController.authController;
     }
@@ -48,10 +51,53 @@ export class AuthenticationController implements AuthenticationControllerI {
         } else {
             const insertedUser = await AuthenticationController.userDao
                 .createUser(newUser);
-            insertedUser.password = '';
+            insertedUser.password = '*****';
             // @ts-ignore
             req.session['profile'] = insertedUser;
             res.json(insertedUser);
         }
+    }
+
+    public profile(req: Request, res: Response): void {
+        // @ts-ignore
+        const profile = req.session['profile'];
+        if (profile) {
+            profile.password = "*****";
+            res.json(profile);
+        } else {
+            res.sendStatus(403);
+        }
+    }
+
+    public async login(req: Request, res: Response): Promise<void> {
+        const user = req.body;
+        const username = user.username;
+        const password = user.password;
+        const existingUser = await AuthenticationController.userDao
+            .findUserByUsername(username);
+
+        if (!existingUser) {
+            res.sendStatus(403);
+            return;
+        }
+
+        const match = await bcrypt
+            .compare(password, existingUser.password);
+
+        if (match) {
+            existingUser.password = '*****';
+            // @ts-ignore
+            req.session['profile'] = existingUser;
+            res.json(existingUser);
+        } else {
+            res.sendStatus(403);
+        }
+
+    }
+
+    public logout(req: Request, res: Response) {
+        // @ts-ignore
+        req.session.destroy();
+        res.sendStatus(200);
     }
 }

@@ -11,4 +11,15 @@ export interface AuthenticationControllerI {
      * @param res {Response} - Response containing the created User
      */
     signup(req: Request, res: Response): void;
+
+    /**
+     * Used to check if a user is signed in
+     * @param req {Request} - Request
+     * @param res {Response} - Response the profile of the signed-in user or a 403 error if not signed in.
+     */
+    profile(req: Request, res: Response): void;
+
+    login(req: Request, res: Response): void;
+
+    logout(req: Request, res: Response): void;
 }
