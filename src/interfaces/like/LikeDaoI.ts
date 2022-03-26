@@ -22,6 +22,13 @@ export interface LikeDaoI {
     findAllTuitsLikedByUser(uid: string): Promise<Like[]>;
 
     /**
+     * Counts the Number of {@link User}s liking a {@link Tuit}
+     * @param tid {string} - the TID of the Tuit
+     * @return {Promise<number>} the number of the users who likes the Tuit
+     */
+    countLikedTuits(tid: string): Promise<number>;
+
+    /**
      * Deletes the record of the {@link User} liking a {@link Tuit}
      * @param tid {string} - the TID of the Tuit
      * @param uid {string} - the UID of the User
