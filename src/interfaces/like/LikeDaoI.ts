@@ -29,6 +29,14 @@ export interface LikeDaoI {
     countLikedTuits(tid: string): Promise<number>;
 
     /**
+     * Returns if there exists a record of the {@link User} liking a {@link Tuit}
+     * @param tid {string} - the TID of the Tuit
+     * @param uid {string} - the UID of the User
+     * @return {Promise<boolean>} returns if the user has liked the tuit
+     */
+    checkIfUserLikedTuit(tid: string, uid: string): Promise<boolean>;
+
+    /**
      * Deletes the record of the {@link User} liking a {@link Tuit}
      * @param tid {string} - the TID of the Tuit
      * @param uid {string} - the UID of the User
