@@ -4,7 +4,7 @@
 
 // The data access object design pattern (DAO) encapsulates data access logic to
 // decouple database access mechanism from the rest of the application.
-import {Tuit} from "../../models/Tuit";
+import {Tuit, TuitStats} from "../../models/Tuit";
 
 /**
  * Defines the CRUD functions {@link TuitDao} is to support.
@@ -52,6 +52,14 @@ export interface TuitDaoI {
      * @return {Promise<Tuit>} - promise containing the Tuit updated with the given data
      */
     updateTuit(tid: string, tuit: Tuit): Promise<object>;
+
+    /**
+     * Updated the {@link Tuit} and returns the updated Tuit
+     * @param tid {string} - the TID of the Tuit to be updated
+     * @param newStats {TuitStats} - the stats to be used to update the Tuit
+     * @return {Promise<Tuit>} - promise containing the Tuit updated with the given data
+     */
+    updateTuitStats(tid: string, newStats: TuitStats): Promise<object>;
 
     /**
      * Deleted the {@link Tuit}
