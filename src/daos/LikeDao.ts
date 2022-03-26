@@ -40,6 +40,16 @@ export class LikeDao implements LikeDaoI {
             .populate("likedBy", {password: 0});
     }
 
+    public async countLikedTuits(tid: string): Promise<number> {
+        return LikeModel
+            .count({tuit: tid});
+    }
+
+    public async checkIfUserLikedTuit(tid: string, uid: string): Promise<boolean> {
+        const record = await LikeModel.find({tuit: tid, likedBy: uid});
+        return record.length != 0;
+    }
+
     public async userLikesTuit(uid: string, tid: string): Promise<Like> {
         return LikeModel.create({tuit: tid, likedBy: uid});
     }

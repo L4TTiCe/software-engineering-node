@@ -3,12 +3,14 @@
  */
 import express, {Request, Response} from "express"
 import mongoose from "mongoose"
+import session from 'express-session';
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 import {LikeController} from "./controllers/LikeController";
 import {FollowController} from "./controllers/FollowController";
 import {BookmarkController} from "./controllers/BookmarkController";
 import {MessageController} from "./controllers/MessageController";
+import {AuthenticationController} from "./controllers/AuthenticationController";
 import cors from 'cors';
 
 /**
@@ -40,7 +42,24 @@ const connectDatabase = (): void => {
 const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
-    app.use(cors())
+    app.use(cors({
+        credentials: true,
+        origin: process.env.NODE_ORIGIN_URLS
+    }))
+
+    let sess = {
+        secret: process.env.SECRET || 'secret',
+        cookie: {
+            secure: false
+        }
+    }
+
+    if (process.env.ENV === 'PRODUCTION') {
+        app.set('trust proxy', 1) // trust first proxy
+        sess.cookie.secure = true // serve secure cookies
+    }
+
+    app.use(session(sess))
 
     UserController.getInstance(app);
     TuitController.getInstance(app);
@@ -48,6 +67,7 @@ const initializeApp = (): express.Express => {
     FollowController.getInstance(app);
     BookmarkController.getInstance(app);
     MessageController.getInstance(app);
+    AuthenticationController.getInstance(app);
 
     return app
 }

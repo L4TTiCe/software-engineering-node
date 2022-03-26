@@ -52,6 +52,7 @@ export class TuitController implements TuitControllerI {
             app.use(bodyParser.json());
 
             app.post("/tuits", TuitController.tuitController.createTuit);
+            app.post("/users/:uid/tuits", TuitController.tuitController.createTuitByUser);
             app.get("/tuits", TuitController.tuitController.findAllTuits);
             app.get("/tuits/:tid", TuitController.tuitController.findTuitById);
             app.get("/users/:uid/tuits", TuitController.tuitController.findTuitsByUser);
@@ -65,6 +66,18 @@ export class TuitController implements TuitControllerI {
         console.info(`tuit: createTuit() ${req.body}`)
 
         TuitController.tuitDao.createTuit(req.body)
+            .then((tuit: Tuit) => res.json(tuit))
+            .catch((status) => res.json(status));
+    }
+
+    public createTuitByUser(req: Request, res: Response): void {
+        console.info(`tuit: createTuitByUser() ${req.params.uid}`)
+
+        // @ts-ignore
+        let uid = req.params.uid === "session" && req.session['profile'] ? req.session['profile']._id : req.params.uid;
+
+
+        TuitController.tuitDao.createTuitByUser(req.body, uid)
             .then((tuit: Tuit) => res.json(tuit))
             .catch((status) => res.json(status));
     }
@@ -96,7 +109,11 @@ export class TuitController implements TuitControllerI {
     public findTuitsByUser(req: Request, res: Response): void {
         console.info(`tuit: findTuitsByUser(${req.params.uid})`)
 
-        TuitController.tuitDao.findTuitsByUser(req.params.uid)
+        // @ts-ignore
+        let uid = req.params.uid === "session" && req.session['profile'] ? req.session['profile']._id : req.params.uid;
+
+
+        TuitController.tuitDao.findTuitsByUser(uid)
             .then((tuits: Tuit[]) => res.json(tuits))
             .catch((status) => res.json(status));
     }
