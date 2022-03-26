@@ -42,6 +42,7 @@ const connectDatabase = (): void => {
 const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
+    console.log("Allowed origins: ", process.env.NODE_ORIGIN_URLS);
     app.use(cors({
         credentials: true,
         origin: process.env.NODE_ORIGIN_URLS
@@ -51,6 +52,7 @@ const initializeApp = (): express.Express => {
         secret: process.env.SECRET || 'secret',
         saveUninitialized: true,
         resave: true,
+        proxy: true,
         cookie: {
             secure: false,
             sameSite: undefined
