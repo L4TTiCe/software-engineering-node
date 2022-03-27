@@ -6,6 +6,7 @@ import {LikeDao} from "../daos/LikeDao";
 import {LikeControllerI} from "../interfaces/like/LikeControllerI";
 import {TuitDao} from "../daos/TuitDao";
 import session from "express-session";
+import {DislikeDao} from "../daos/DislikeDao";
 
 /**
  * @class LikeController Implements RESTful Web service API for {@link Like} resource.
@@ -40,7 +41,7 @@ export class LikeController implements LikeControllerI {
             app.get("/users/:uid/likes/:tid", LikeController.likeController.doesUserLikeTuit);
             app.put("/users/:uid/likes/:tid", LikeController.likeController.userTogglesLike);
             app.post("/users/:uid/like/:tid", LikeController.likeController.userLikesTuit);
-            app.delete("/users/:uid/unlike/:tid", LikeController.likeController.userUnlikesTuit);
+            app.delete("/users/:uid/like/:tid", LikeController.likeController.userUnlikesTuit);
         }
         return LikeController.likeController;
     }
@@ -101,8 +102,11 @@ export class LikeController implements LikeControllerI {
 
     public async userTogglesLike(req: Request, res: Response): Promise<void> {
         console.info(`like: userTogglesLike(${req.params.uid}, ${req.params.tid})`)
+
         const uid = req.params.uid;
         const tid = req.params.tid;
+        const dislikeDao: DislikeDao = DislikeDao.getInstance();
+
         // @ts-ignore
         const profile = req.session['profile'];
         const userId = uid === "session" && profile ?
@@ -116,7 +120,9 @@ export class LikeController implements LikeControllerI {
             } else {
                 await LikeController.likeDao.userLikesTuit(userId, tid);
             }
+
             tuit.stats.likes = await LikeController.likeDao.countLikedTuits(tid);
+            tuit.stats.dislikes = await dislikeDao.countDislikedTuits(tid);
 
             await tuitDao.updateTuitStats(tid, tuit.stats);
             res.sendStatus(200);
