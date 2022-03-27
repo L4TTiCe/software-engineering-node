@@ -12,7 +12,7 @@ import {FollowController} from "./controllers/FollowController";
 import {BookmarkController} from "./controllers/BookmarkController";
 import {MessageController} from "./controllers/MessageController";
 import {AuthenticationController} from "./controllers/AuthenticationController";
-import cors from 'cors';
+// import cors from 'cors';
 
 /**
  * Connects to the Mongo Database with db connection details from Environment Variables
@@ -43,11 +43,22 @@ const connectDatabase = (): void => {
 const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
-    console.log("Allowed origins: ", process.env.NODE_ORIGIN_URLS);
-    app.use(cors({
-        credentials: true,
-        origin: process.env.NODE_ORIGIN_URLS
-    }))
+    // console.log("Allowed origins: ", process.env.NODE_ORIGIN_URLS);
+    // app.use(cors({
+    //     credentials: true,
+    //     origin: process.env.NODE_ORIGIN_URLS
+    // }))
+
+    // References:
+    // https://stackoverflow.com/questions/26988071/allow-multiple-cors-domain-in-express-js
+    app.use(function (req: Request, res: Response, next ) {
+        res.setHeader('Access-Control-Allow-Origin', req.header('origin') || '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Accept');
+        // @ts-ignore
+        res.setHeader('Access-Control-Allow-Credentials', true);
+        next();
+    })
 
     let sess = {
         secret: process.env.SECRET || 'secret',
