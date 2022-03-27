@@ -5,6 +5,7 @@ import {Express, Request, Response} from "express";
 import {LikeDao} from "../daos/LikeDao";
 import {LikeControllerI} from "../interfaces/like/LikeControllerI";
 import {TuitDao} from "../daos/TuitDao";
+import session from "express-session";
 
 /**
  * @class LikeController Implements RESTful Web service API for {@link Like} resource.
@@ -36,7 +37,8 @@ export class LikeController implements LikeControllerI {
             LikeController.likeController = new LikeController();
             app.get("/users/:uid/likes", LikeController.likeController.findAllTuitsLikedByUser);
             app.get("/tuits/:tid/likes", LikeController.likeController.findAllUsersThatLikedTuit);
-            app.post("/users/:uid/likes/:tid", LikeController.likeController.userTogglesLike);
+            app.get("/users/:uid/likes/:tid", LikeController.likeController.doesUserLikeTuit);
+            app.put("/users/:uid/likes/:tid", LikeController.likeController.userTogglesLike);
             app.post("/users/:uid/like/:tid", LikeController.likeController.userLikesTuit);
             app.delete("/users/:uid/unlike/:tid", LikeController.likeController.userUnlikesTuit);
         }
@@ -73,6 +75,14 @@ export class LikeController implements LikeControllerI {
             .catch((status) => res.json(status));
     }
 
+    public doesUserLikeTuit(req: Request, res: Response): void {
+        console.info(`like: doesUserLikeTuit(${req.params.uid}, ${req.params.tid})`)
+
+        LikeController.likeDao.checkIfUserLikedTuit(req.params.tid, req.params.uid)
+            .then((like) => res.json(like))
+            .catch((status) => res.json(status));
+    }
+
     /**
      * @param {Request} req Represents request from client, including the
      * path parameters uid and tid representing the user that is liking the tuit
@@ -99,16 +109,20 @@ export class LikeController implements LikeControllerI {
             profile._id : uid;
         const tuitDao = TuitDao.getInstance();
 
-        let tuit = await tuitDao.findTuitById(tid);
-        if (await LikeController.likeDao.checkIfUserLikedTuit(tid, uid)) {
-            await LikeController.likeDao.userUnlikesTuit(uid, tid);
-        } else {
-            await LikeController.likeDao.userLikesTuit(uid, tid);
-        }
-        tuit.stats.likes = await LikeController.likeDao.countLikedTuits(tid);
+        if (userId !== 'session') {
+            let tuit = await tuitDao.findTuitById(tid);
+            if (await LikeController.likeDao.checkIfUserLikedTuit(tid, userId)) {
+                await LikeController.likeDao.userUnlikesTuit(userId, tid);
+            } else {
+                await LikeController.likeDao.userLikesTuit(userId, tid);
+            }
+            tuit.stats.likes = await LikeController.likeDao.countLikedTuits(tid);
 
-        await tuitDao.updateTuitStats(tid, tuit.stats);
-        res.sendStatus(200);
+            await tuitDao.updateTuitStats(tid, tuit.stats);
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(401);
+        }
     }
 
     /**

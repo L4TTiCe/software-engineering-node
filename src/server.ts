@@ -42,6 +42,7 @@ const connectDatabase = (): void => {
 const initializeApp = (): express.Express => {
     connectDatabase()
     const app = express();
+    console.log("Allowed origins: ", process.env.NODE_ORIGIN_URLS);
     app.use(cors({
         credentials: true,
         origin: process.env.NODE_ORIGIN_URLS
@@ -49,14 +50,21 @@ const initializeApp = (): express.Express => {
 
     let sess = {
         secret: process.env.SECRET || 'secret',
+        saveUninitialized: true,
+        resave: true,
+        proxy: true,
         cookie: {
-            secure: false
+            secure: false,
+            sameSite: undefined
         }
     }
 
     if (process.env.ENV === 'PRODUCTION') {
+        console.log("Running in PRODUCTION Mode!");
         app.set('trust proxy', 1) // trust first proxy
         sess.cookie.secure = true // serve secure cookies
+        // @ts-ignore
+        sess.cookie.sameSite = 'none'
     }
 
     app.use(session(sess))
