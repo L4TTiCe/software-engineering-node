@@ -56,8 +56,15 @@ export class LikeController implements LikeControllerI {
     public findAllTuitsLikedByUser(req: Request, res: Response): void {
         console.info(`like: findAllTuitsLikedByUser(${req.params.uid})`)
 
-        LikeController.likeDao.findAllTuitsLikedByUser(req.params.uid)
-            .then((likes) => res.json(likes))
+        // @ts-ignore
+        let uid = req.params.uid === "session" && req.session['profile'] ? req.session['profile']._id : req.params.uid;
+
+        LikeController.likeDao.findAllTuitsLikedByUser(uid)
+            .then((likes) => {
+                const nonNullTuits =
+                    likes.filter(like => like.tuit);
+                res.json(nonNullTuits.map(like => like.tuit));
+            })
             .catch((status) => res.json(status));
     }
 
