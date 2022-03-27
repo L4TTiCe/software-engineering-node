@@ -41,7 +41,7 @@ export class LikeController implements LikeControllerI {
             app.get("/users/:uid/likes/:tid", LikeController.likeController.doesUserLikeTuit);
             app.put("/users/:uid/likes/:tid", LikeController.likeController.userTogglesLike);
             app.post("/users/:uid/like/:tid", LikeController.likeController.userLikesTuit);
-            app.delete("/users/:uid/unlike/:tid", LikeController.likeController.userUnlikesTuit);
+            app.delete("/users/:uid/like/:tid", LikeController.likeController.userUnlikesTuit);
         }
         return LikeController.likeController;
     }

@@ -41,7 +41,7 @@ export class DislikeController implements DislikeControllerI {
             app.get("/users/:uid/dislikes/:tid", DislikeController.dislikeController.doesUserDislikeTuit);
             app.put("/users/:uid/dislikes/:tid", DislikeController.dislikeController.userTogglesDislike);
             app.post("/users/:uid/dislike/:tid", DislikeController.dislikeController.userDislikesTuit);
-            app.delete("/users/:uid/undislike/:tid", DislikeController.dislikeController.userUndislikesTuit);
+            app.delete("/users/:uid/dislike/:tid", DislikeController.dislikeController.userUndislikesTuit);
         }
         return DislikeController.dislikeController;
     }
