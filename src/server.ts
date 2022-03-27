@@ -7,6 +7,7 @@ import session from 'express-session';
 import {UserController} from "./controllers/UserController"
 import {TuitController} from "./controllers/TuitController"
 import {LikeController} from "./controllers/LikeController";
+import {DislikeController} from "./controllers/DislikeController";
 import {FollowController} from "./controllers/FollowController";
 import {BookmarkController} from "./controllers/BookmarkController";
 import {MessageController} from "./controllers/MessageController";
@@ -72,6 +73,7 @@ const initializeApp = (): express.Express => {
     UserController.getInstance(app);
     TuitController.getInstance(app);
     LikeController.getInstance(app);
+    DislikeController.getInstance(app);
     FollowController.getInstance(app);
     BookmarkController.getInstance(app);
     MessageController.getInstance(app);
