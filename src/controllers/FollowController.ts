@@ -134,15 +134,6 @@ export class FollowController implements FollowControllerI {
             .catch((status) => res.json(status));
     }
 
-    // public doesUserFollowUser(req: Request, res: Response): void {
-    //     console.info(`follow: doesUserFollowUser(${req.params.uid}, ${req.params.following_uid})`)
-
-    //     FollowController.followDao.checkIfUserFollowsUser(req.params.uid, req.params.following_uid)
-    //         .then((follow) => res.json(follow))
-    //         .catch((status) => res.json(status));
-    // }
-
-
     public userIsFollowingUser(req: Request, res: Response): void {
         console.info(`follow: userIsFollowingUser(${req.params.following_uid}, ${req.params.followed_uid})`)
         FollowController
