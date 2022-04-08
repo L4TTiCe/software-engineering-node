@@ -50,6 +50,8 @@ export class FollowController implements FollowControllerI {
                 FollowController.followController.userUnfollowsUser);
             app.delete("/users/:following_uid/follows",
                 FollowController.followController.userUnfollowsAllUsers);
+            app.get("/users/:following_uid/following/:followed_uid",
+                FollowController.followController.userIsFollowingUser);
         }
         return FollowController.followController;
     }
@@ -63,6 +65,7 @@ export class FollowController implements FollowControllerI {
      * body formatted as JSON arrays containing the user objects who the user follows
      */
     public findAllUsersFollowedByUser(req: Request, res: Response): void {
+        console.info(`follow: findAllUsersFollowedByUser(${req.params.uid})`)
         FollowController.followDao
             .findAllUsersFollowedByUser(req.params.uid)
             .then((follow: Follow[]) => res.json(follow))
@@ -78,6 +81,8 @@ export class FollowController implements FollowControllerI {
      * body formatted as JSON arrays containing the user objects who follow the user
      */
     public findAllUsersThatFollowUser(req: Request, res: Response): void {
+        console.info(`follow: findAllUsersThatFollowUser(${req.params.uid})`)
+
         FollowController.followDao
             .findAllUsersThatFollowUser(req.params.uid)
             .then((follow: Follow[]) => res.json(follow))
@@ -93,6 +98,8 @@ export class FollowController implements FollowControllerI {
      * database
      */
     public userFollowsUser(req: Request, res: Response): void {
+        console.info(`follow: userFollowsUser(${req.params.followed_uid}, ${req.params.following_uid})`)
+
         FollowController.followDao
             .userUnfollowsUser(req.params.followed_uid, req.params.following_uid).then(() => {
                 FollowController.followDao
@@ -110,6 +117,8 @@ export class FollowController implements FollowControllerI {
      * on whether deleting the follow was successful or not
      */
     public userUnfollowsUser(req: Request, res: Response): void {
+        console.info(`follow: userUnfollowsUser(${req.params.followed_uid}, ${req.params.following_uid})`)
+
         FollowController
             .followDao.userUnfollowsUser(req.params.followed_uid, req.params.following_uid)
             .then((status) => res.send(status))
@@ -117,9 +126,19 @@ export class FollowController implements FollowControllerI {
     }
 
     public userUnfollowsAllUsers(req: Request, res: Response): void {
+        console.info(`follow: userUnfollowsAllUsers(${req.params.uid})`)
+
         FollowController
             .followDao.userUnfollowsAllUsers(req.params.following_uid)
             .then((status) => res.send(status))
+            .catch((status) => res.json(status));
+    }
+
+    public userIsFollowingUser(req: Request, res: Response): void {
+        console.info(`follow: userIsFollowingUser(${req.params.following_uid}, ${req.params.followed_uid})`)
+        FollowController
+            .followDao.userIsFollowingUser(req.params.following_uid, req.params.followed_uid)
+            .then((isFollowing: boolean) => res.send(isFollowing))
             .catch((status) => res.json(status));
     }
 }
